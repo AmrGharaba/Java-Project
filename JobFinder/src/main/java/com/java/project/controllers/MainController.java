@@ -74,11 +74,11 @@ public class MainController {
 		if (result.hasErrors()) {
 			model.addAttribute("newUser", new User());
 
-			return "main.jsp";
+			return "login.jsp";
 		} else {
 			session.setAttribute("loginId", user.getId());
 
-			return "redirect:/user/dashboard.jsp";
+			return "index.jsp";
 		}
 	}
 
