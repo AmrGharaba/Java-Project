@@ -51,7 +51,7 @@
     <div class="row justify-content-around">
         <div class="col-lg-4">
             <h2 class="text-center mb-4">Registration</h2>
-            <form:form action="/register" method="post" modelAttribute="newCompany">
+            <form:form action="/companyRegister" method="post" modelAttribute="newCompany">
                 <div class="form-group">
                     <form:label path="name">Name:</form:label>
                     <form:errors path="name"/>
@@ -78,7 +78,7 @@
 
         <div class="col-lg-4">
             <h2 class="text-center mb-4">Login</h2>
-            <form:form action="/login" method="post" modelAttribute="company">
+            <form:form action="/companyLogin" method="post" modelAttribute="company">
                 <div class="form-group">
                     <form:label path="email">Email:</form:label>
                     <form:errors path="email"/>
