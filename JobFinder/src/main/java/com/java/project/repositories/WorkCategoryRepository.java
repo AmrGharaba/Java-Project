@@ -1,10 +1,15 @@
 package com.java.project.repositories;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.java.project.models.WorkCategory;
 @Repository
 public interface WorkCategoryRepository extends CrudRepository<WorkCategory, Long> {
+	Optional<WorkCategory> findById(Long id);
+	List<WorkCategory> findAll();
 
 }

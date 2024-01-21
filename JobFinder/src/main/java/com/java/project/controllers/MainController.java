@@ -1,5 +1,7 @@
 package com.java.project.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,12 +10,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.java.project.models.City;
 import com.java.project.models.Company;
 import com.java.project.models.LoginCompany;
 import com.java.project.models.LoginUser;
 import com.java.project.models.User;
+import com.java.project.models.WorkCategory;
+import com.java.project.services.CityService;
 import com.java.project.services.CompanyService;
 import com.java.project.services.UserService;
+import com.java.project.services.WorkCategoryService;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -21,9 +27,13 @@ import jakarta.validation.Valid;
 @Controller	
 public class MainController {
 	@Autowired
-	UserService userService;
+	private UserService userService;
 	@Autowired
-	CompanyService companyService;
+	private CompanyService companyService;
+	@Autowired
+	private CityService cityService;
+	@Autowired
+	private WorkCategoryService workCategoryService;
 	
 	
 	
@@ -54,6 +64,9 @@ public class MainController {
 			if(userService.listAdmins().isEmpty()) {
 				userService.setAdmin();
 			}
+			if(newUser.getAccessLevel() == 1) {
+				return "redirect:/admin/dashboard";
+			}
 			
 			// No errors!
 			// TO-DO Later: Store their ID from the DB in session,
@@ -77,8 +90,12 @@ public class MainController {
 			return "main.jsp";
 		} else {
 			session.setAttribute("loginId", user.getId());
+			
+			if(user.getAccessLevel() == 1) {
+				return "redirect:/admin/dashboard";
+			}
 
-			return "redirect:/user/dashboard.jsp";
+			return "redirect:/user/dashBoard.jsp";
 		}
 	}
 
@@ -139,7 +156,39 @@ public class MainController {
 		}
 	}
 
+	///////////// end of company login and registration	
 	
+	//////////// Admin dashboard
+	
+	@GetMapping("/admin/dashboard")
+	public String adminDashboard(Model model, HttpSession session) {
+		Long loginId = (Long)session.getAttribute("loginId");
+		List<City> cities = cityService.listCities();
+		List<User> users = userService.listOtherUsers(loginId);
+		List<Company> companies = companyService.listCompanies();
+		List<WorkCategory> workCategories = workCategoryService.listWorkCategories();
+		model.addAttribute("newCity", new City());
+		model.addAttribute("newCategory", new WorkCategory());
+		model.addAttribute("cities", cities);
+		model.addAttribute("users", users);
+		model.addAttribute("companies", companies);
+		model.addAttribute("workCategories", workCategories);
+		return "admin/dashboard.jsp";
+	}
+	
+	@PostMapping("/admin/dashboard/addCity")
+	public String addCity(@ModelAttribute("newCity") City city) {
+		cityService.addCity(city);
+		return "redirect:/admin/dashboard";
+		
+	}
+	
+	@PostMapping("/admin/dashboard/addCategory")
+	public String addCategory(@ModelAttribute("newCategory") WorkCategory newCategory) {
+		workCategoryService.addCategory(newCategory);
+		return "redirect:/admin/dashboard";
+		
+	}
 	
 	
 	

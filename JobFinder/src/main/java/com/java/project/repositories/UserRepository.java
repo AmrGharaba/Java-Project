@@ -15,6 +15,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 	Optional<User> findFirstByOrderByIdDesc();
 	List<User> findByAccessLevelIsNull();
 	List<User> findByAccessLevelEquals(int i);
+	List<User> findByIdIsNot(Long j);
 
 
 }
