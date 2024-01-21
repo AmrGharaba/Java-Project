@@ -89,6 +89,10 @@ public class UserService {
     	
     }
     
+    public List<User> listOtherUsers(Long id){
+    	return userRepository.findByIdIsNot(id);
+    }
+    
 //    public void addUserToVacancy(User user, Vacancy vacancy) {
 //    	Vacancy
 //    }

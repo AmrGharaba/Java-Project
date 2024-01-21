@@ -1,5 +1,6 @@
 package com.java.project.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -67,6 +68,10 @@ public class CompanyService {
     	Optional<Company> findCompany = companyRepository.findById(id);
     	return findCompany.get();
     
+    }
+    
+    public List<Company> listCompanies(){
+    	return companyRepository.findAll();
     }
     
     
