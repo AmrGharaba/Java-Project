@@ -12,10 +12,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>User dashboard</title>
+<link rel="stylesheet" href="/style/styleindex.css">
+
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="/style/styleindex.css">
+
 </head>
 
 <body class="body">
@@ -36,34 +38,35 @@
 		<h1>FIND THE JOB THAT FITS YOUR LIFE</h1>
 		<h3>We offer thousands of jobs vacancies right now</h3>
 
-		<form class="row gy-2 gx-3 align-items-center">
+		<form:form class="row gy-2 gx-3 align-items-center" action="/vacancy/filter" method="post" modelAttribute="vacancyFilter">
 			<div class="col-auto">
-				<label class="visually-hidden" for="autoSizingInput">Key
-					Word</label> <input type="text" class="form-control" id="autoSizingInput"
-					placeholder="Key Word">
+				<label class="visually-hidden" for="autoSizingInput">Key Word</label> 
+				<form:input type="text" path="description" class="form-control" id="autoSizingInput" placeholder="Key Word"/>
 			</div>
 			<div class="col-auto">
 				<label class="visually-hidden" for="autoSizingSelect">Category</label>
-				<select class="form-select" id="autoSizingSelect">
+				<select class="form-select" id="autoSizingSelect" name="categoryId" >
 					<option selected>Category</option>
-					<option value="1">One</option>
-					<option value="2">Two</option>
-					<option value="3">Three</option>
+					<c:forEach var="category" items="${categories}">
+					<option value="${category.id}">${category.title}</option>
+					</c:forEach>
 				</select>
 			</div>
+			
 			<div class="col-auto">
 				<label class="visually-hidden" for="autoSizingSelect">Location</label>
-				<select class="form-select" id="autoSizingSelect">
+				<form:select class="form-select" id="autoSizingSelect" path="city">
 					<option selected>Location</option>
-					<option value="1">One</option>
-					<option value="2">Two</option>
-					<option value="3">Three</option>
-				</select>
+					<c:forEach var="city" items="${cities}">
+					<form:option path="city" value="${city}">${city.name}</form:option>
+					</c:forEach>
+
+				</form:select>
 			</div>
 			<div class="col-auto">
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</div>
-		</form>
+		</form:form>
 	</section>
 	<!--  end form -->
 
@@ -104,7 +107,7 @@
 		<div class="card mb-3" style="max-width: 540px;">
 			<div class="row g-0">
 				<div class="col-md-4">
-					<img src="images/career.jpg" class="img-fluid rounded-start" alt="..."/>	
+					<img src="/images/career.jpg" class="img-fluid rounded-start" alt="..."/>	
 				</div>
 				<div class="col-md-8">
 				<div  class="cardbody">

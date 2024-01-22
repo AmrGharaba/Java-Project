@@ -19,6 +19,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 @Entity
@@ -50,7 +51,9 @@ public class Vacancy {
     @OneToMany(mappedBy="vacancy", fetch = FetchType.LAZY)
     private List<User> users;
     
+
     
+
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
 	        name = "vacancy_workCategories", 
@@ -122,6 +125,7 @@ public class Vacancy {
 		return workCategories;
 	}
 
+
 	public void setWorkCategories(List<WorkCategory> workCategories) {
 		this.workCategories = workCategories;
 	}
@@ -150,7 +154,7 @@ public class Vacancy {
 		this.city = city;
 	}
 	
-	
+
 	
 	
     
