@@ -78,7 +78,7 @@ public class MainController {
 			// TO-DO Later: Store their ID from the DB in session,
 			// in other words, log them in.
 
-			return "redirect:/user/dashboard.jsp";
+			return "redirect:/login";
 		}
 
 	}
@@ -287,6 +287,16 @@ public class MainController {
 		return "companydashboard.jsp";
 	}
 	
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+	}
+	@GetMapping("/aboutus")
+	public String aboutus() {
+		return "about.jsp";
+	}
 	
 	
 

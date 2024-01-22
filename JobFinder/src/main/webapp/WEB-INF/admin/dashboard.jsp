@@ -30,7 +30,7 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item active"><a class="nav-link text-white"
-							href="/login">Log In</a></li>
+							href="/logout">Log Out</a></li>
 					</ul>
 				</div>
 			</div>
@@ -52,6 +52,7 @@
 		</section>
 		<!-- City card -->
 		
+		<div class="d-flex justify-content-around">
 		<div class="col-md-3">
 
 				<div class="card">
@@ -88,6 +89,7 @@
 					</ul>
 				</div>
 			</div>
+						<!-- end of city card -->
 			
 			  <!-- Work Category card -->
 			<div class="col-md-3">
@@ -123,39 +125,40 @@
 					</ul>
 				</div>
 			</div>
+						
+			</div>
 			<!-- end of Work Category card -->
 			
-			<!-- end of city card -->
 			
 			<section class="section-border m-1 main-form">
 		   <h3>Users</h3>
 		  </section>
 		  <!-- users card -->
-<div class="row mx-auto text-center">
-       
-	 <c:if test="${!user.isEmpty()}">
-	 
-	  <c:forEach var="user" items="${users}">
-	   <div class="col-sm-3 p-2">
-	<div class="d-flex justify-content-between align-items-center">
-		<a href="">${user.firstName} ${user.lastName}</a>
-		<div class="d-flex flex-row">
-			<button type="button" class="btn btn-sm btn-danger mr-2">Delete</button>
-			<button type="button" class="btn btn-sm btn-primary">Make Admin</button>
-		</div>
-	</div>
-	   </div>
-	   </c:forEach>
-	    </c:if>
-	  </div>
-	 
-	  <!--  end foor loop -->
-	 
-	
-	
-
-
+	<div class="mx-auto text-center">
+		<c:if test="${!user.isEmpty()}">
+	       <table class="table">
+			  <tr>
+			    <th>User Name:</th>
+			    <th>Action Delete</th>
+			    <th>Action promote</th>
+			  </tr>
+			  <c:forEach var="user" items="${users}">
+			  
+			  <tr>
+			    <td><a href="">${user.firstName} ${user.lastName}</a></td>
+			    <td><button type="button" class="btn btn-sm btn-danger mr-2">Delete</button></td>
+			    <td><button type="button" class="btn btn-sm btn-primary">Make Admin</button></td>
+			  </tr>
+			 </c:forEach>
+			</table>
+	        </c:if>
+		</div>       
 			<!-- end of users card -->
+			
+			
+			
+			
+			
 			<section class="section-border m-1 main-form">
 		   <h3>Companies</h3>
 		  </section>
