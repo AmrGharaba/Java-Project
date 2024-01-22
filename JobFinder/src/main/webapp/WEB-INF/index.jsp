@@ -16,6 +16,9 @@
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="/style/styleindex.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 </head>
 
 <body class="body">
@@ -23,7 +26,16 @@
 	<div class="container">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+	<div class="navbar">
+	  <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+	  <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+	   <a href="#services"><i class="fa fa-fw fa-wrench"></i> Services</a>
+  <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
+	
+	</div>
+	<div>
+	  <a id="login" href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+	</div>
     </div>
   </nav>
 </div>
@@ -33,9 +45,10 @@
 
 	<!--  form -->
 	<section class="main-form">
+	<div class="nested-card">
+	
 		<h1>FIND THE JOB THAT FITS YOUR LIFE</h1>
 		<h3>We offer thousands of jobs vacancies right now</h3>
-
 		<form class="row gy-2 gx-3 align-items-center">
 			<div class="col-auto">
 				<label class="visually-hidden" for="autoSizingInput">Key
@@ -64,8 +77,150 @@
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</div>
 		</form>
+		</div>
 	</section>
 	<!--  end form -->
+	
+	<div class="container">
+    <input type="radio" id="All" name="categories" value="All" checked>
+    <input type="radio" id="frontend" name="categories" value="frontend">
+    <input type="radio" id="backend" name="categories" value="backend">
+    <input type="radio" id="ui/ux" name="categories" value="ui/ux">
+    <input type="radio" id="data scientist" name="categories" value="data scientist">
+    <input type="radio" id="database" name="categories" value="database">
+
+    <ol class="filters">
+      <li>
+        <label for="All">All</label>
+      </li>
+      <li>
+        <label for="frontend">Frontend</label>
+      </li>
+      <li>
+        <label for="backend">Backend</label>
+      </li>
+      <li>
+        <label for="ui/ux">UI/UX</label>
+      </li>
+      <li>
+        <label for="data scientist">Data Scientist</label>
+      </li>
+      <li>
+        <label for="database">Database</label>
+      </li>
+    </ol>
+  </div>
+  
+  
+<div class="cards" id="vacancies-container">
+    <c:forEach var="vacancy" items="${vacancies}">
+        <div class="card">
+            <img src="https://i.pngimg.me/image_by_url?url=https://image.freepik.com/free-vector/job-vacancy-background-with-chair_23-2147868094.jpg" alt="Vacancy Image">
+            <div class="container">
+                <h4><b>${vacancy.name}</b></h4>
+                <div class="categories">
+                    <c:forEach var="category" items="${vacancy.workCategories}">
+                        <span class="tag">${category.title}</span>
+                    </c:forEach>
+                </div>
+                <p>${vacancy.description}</p>
+            </div>
+        </div>
+    </c:forEach>
+</div>
+
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Your AJAX script -->
+<script>
+    $(document).ready(function() {
+        $('input[name="categories"]').change(function() {
+            const selectedCategory = $('input[name="categories"]:checked').val();
+
+            $.ajax({
+                type: 'GET',
+                url: '/fetchvacancy?category=' + selectedCategory,
+                success: function(data) {
+                    // Replace the existing content inside the #vacancies-container with the newly received data
+                    $('#vacancies-container').html(data);
+                },
+                error: function(error) {
+                    console.error('Error fetching data:', error);
+                }
+            });
+        });
+    });
+</script>
+ <<%-- div class="cards">
+    <c:forEach var="vacancy" items="${vacancies}">
+        <div class="card">
+            <img src="https://i.pngimg.me/image_by_url?url=https://image.freepik.com/free-vector/job-vacancy-background-with-chair_23-2147868094.jpg" alt="Vacancy Image">
+            <div class="container">
+                <h4><b>${vacancy.name}</b></h4>
+                <div class="categories">
+                    <c:forEach var="category" items="${vacancy.workCategories}">
+                        <span class="tag">${category.title}</span>
+                    </c:forEach>
+                </div>
+                <p>${vacancy.description}</p>
+            </div>
+        </div>
+    </c:forEach>
+</div>
+    <div id="vacanciesContainer">
+    </div>
+    
+    <script>
+    $(document).ready(function() {
+        $('input[name="categories"]').change(function() {
+            const selectedCategory = $('input[name="categories"]:checked').val();
+
+            $.ajax({
+                type: 'GET',
+                url: '/fetchvacancy?category=' + selectedCategory,
+                success: function(data) {
+                    // Append the received HTML content to the existing .cards container
+                    $('.cards').html(data);
+                },
+                error: function(error) {
+                    console.error('Error fetching data:', error);
+                }
+            });
+        });
+    });
+</script> --%>
+    
+	
+  <script>
+   /*  $(document).ready(function() {
+      const vacanciesContainer = $('#vacancies-container');
+
+      $('input[name="categories"]').change(function() {
+        const selectedCategory = $('input[name="categories"]:checked').val();
+        console.log(selectedCategory)
+        $.ajax({
+          type: 'GET',
+          url: '/fetchvacancy?category=' + selectedCategory,
+          success: function(data) {
+        	  //$('cards').append(data)
+        	  //console.log('Received data:', data);
+            vacanciesContainer.html(data);
+            
+          },
+          error: function(error) {
+            console.error('Error fetching data:', error);
+          }
+        });
+      });
+    }); */
+  </script>
+	
+	
+	
+	
+	
+	
 
 	<section class="section-job">
 		<h3 class="job-font">Find the right job Sectors</h3>

@@ -9,16 +9,19 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.java.project.models.City;
 import com.java.project.models.Company;
 import com.java.project.models.LoginCompany;
 import com.java.project.models.LoginUser;
 import com.java.project.models.User;
+import com.java.project.models.Vacancy;
 import com.java.project.models.WorkCategory;
 import com.java.project.services.CityService;
 import com.java.project.services.CompanyService;
 import com.java.project.services.UserService;
+import com.java.project.services.VacancyService;
 import com.java.project.services.WorkCategoryService;
 
 import jakarta.servlet.http.HttpSession;
@@ -34,7 +37,8 @@ public class MainController {
 	private CityService cityService;
 	@Autowired
 	private WorkCategoryService workCategoryService;
-	
+	@Autowired
+	private VacancyService vacancyService;
 	
 	
 	/////////// user login and registration
@@ -158,7 +162,9 @@ public class MainController {
 	}
 	
 	@GetMapping("/")
-	public String index() {
+	public String index(Model model) {
+		List<Vacancy> vacancies = vacancyService.listVacancy();
+		model.addAttribute("vacancies",vacancies);
 		return "index.jsp";
 	}
 
@@ -196,6 +202,27 @@ public class MainController {
 		
 	}
 	
+	@GetMapping("/fetchvacancy")
+	public String getVacancyTofiller(@RequestParam("category") String category,Model model) {
+		System.out.println("Helllo"+ category);
+		if (category.equals("All")) {
+			List<Vacancy> vacancy = vacancyService.listVacancy();
+			model.addAttribute("vacancies",vacancy);
+			return "updatedCard/index.jsp";
+		}
+		else {
+			System.out.println("***********************************");
+			List<Vacancy> vacancy = vacancyService.filterdVacancy(category);
+			model.addAttribute("vacancies",vacancy);
+			System.out.println(vacancy);	
+			return "updatedCard/index.jsp";
+		}
+//		System.out.println("***********************************");
+//		List<Vacancy> vacancy = vacancyService.filterdVacancy(category);
+//		model.addAttribute("vacancies",vacancy);
+//		System.out.println(vacancy);		
+	
+	}
 	
 	
 	
