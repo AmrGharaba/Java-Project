@@ -254,6 +254,7 @@ public class MainController {
 		model.addAttribute("cities", cities);
 		model.addAttribute("newVacancy", new Vacancy());
 		model.addAttribute("company", company);
+		model.addAttribute("vacancies", vacancies);
 		return "companydashboard.jsp";
 	}
 	

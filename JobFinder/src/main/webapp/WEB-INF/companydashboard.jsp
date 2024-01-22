@@ -20,37 +20,33 @@
 
 <body class="body">
 	<header>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">JobFinder</a>
+		<div class="container">
+			<nav class="navbar navbar-expand-lg bg-body-tertiary">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#">JobFinder</a>
 
-                <!-- Button for mobile navigation toggle -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+					<!-- Button for mobile navigation toggle -->
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarNav" aria-controls="navbarNav"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
 
-                <!-- Navigation links -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contactus">Contact Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/login">Log In</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/vacancy">Vacancies</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-	    </div>
+					<!-- Navigation links -->
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+							<li class="nav-item"><a class="nav-link" href="/contactus">Contact
+									Us</a></li>
+							<li class="nav-item"><a class="nav-link" href="/login">Log
+									In</a></li>
+							<li class="nav-item"><a class="nav-link" href="/vacancy">Vacancies</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
 	</header>
 
 
@@ -61,139 +57,112 @@
 
 
 	<main>
-	
-	
-	<section class="main-form">
-		<h1>Wellcome ${company.name}</h1>
-		<h3>add your Vacancies here!</h3>
-	</section>
-	
-	
-	
-	
-	
-	
-	<form:form class="mx-auto text-center w-50 mb-5 mt-5" action="/submitVacancy" method="post" modelAttribute="newVacancy">
-	    <!-- Hidden field for ID (for update operation) -->
-	    <form:input type="hidden" path="company" value="${company.id}"></form:input>
-	    
-	    <div class="form-group">
-	        <!-- Vacancy Name -->
-	        <label for="name">Vacancy Name:</label>
-	        <form:input type="text" class="form-control" id="name" path="name"></form:input>
-	    </div>
-	
-	    <div class="form-group">
-	        <!-- Description -->
-	        <label for="description">Description:</label>
-	        <form:textarea class="form-control" id="description" path="description" rows="4"></form:textarea>
-	    </div>
-	
-	    <div class="form-group">
-	        <!-- City -->
-	        <label for="city">City:</label>
-	        <form:select class="form-control" id="city" path="city">
-	            <!-- Populate this dropdown with city options from your database -->
-	            <c:forEach var="city" items="${cities}">
-	            <form:option path="city" value="${city}">${city.name}</form:option>
-	            </c:forEach>
-	            <!-- Add more options as needed -->
-	        </form:select>
-	    </div>
-	
-	    <div class="form-group">
-	    <!-- Work Categories -->
-	    <label class="col-form-label">Work Categories:</label>
-	    <div class="form-row">
-	        <!-- Populate this checkbox list with work category options from your database -->
-	        <c:forEach var="category" items="${categories}">
-	        <div class="form-check col-md-3">
-	            <input class="form-check-input" type="checkbox" id="category1" name="selected" value="${category.id}">
-	            <label class="form-check-label" for="category1">${category.title}</label>
-	        </div>
-	        </c:forEach>
 
-	    </div>
-	</div>
-		
-	    <!-- Add more fields as needed -->
-	
-	    <!-- Submit Button -->
-	    <button type="submit" class="btn btn-primary">Add Vacancy</button>
-	</form:form>
 
-			
-	
-	
-	
-	
-	<section class="section-border m-1">
-		<h3>Vacancy List</h3>
-	</section>
-	
-	
-	<section class="section-job w-75 mx-auto text-center mb-4">
-		<h3 class="job-font">History of Vacancies</h3>
-		<div class="row">
-		
-			<!--  add for loop herererere -->
-	  <div class="col-sm-4 p-2">
-	    <div class="card">
-	      <div class="card-body">
-	        <h5 class="card-title">Special title treatment</h5>
-	        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-	        <a href="#" class="btn btn-primary">Go somewhere</a>
-	      </div>
-	    </div>
-	  </div>
-	  <!--  end foor loop -->
-	 
-	 
-	 <div class="col-sm-4 p-2">
-	    <div class="card">
-	      <div class="card-body">
-	        <h5 class="card-title">Special title treatment</h5>
-	        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-	        <a href="#" class="btn btn-primary">Go somewhere</a>
-	      </div>
-	    </div>
-	  </div>
-	  
-	  <div class="col-sm-4 p-2">
-	    <div class="card">
-	      <div class="card-body">
-	        <h5 class="card-title">Special title treatment</h5>
-	        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-	        <a href="#" class="btn btn-primary">Go somewhere</a>
-	      </div>
-	    </div>
-	  </div>
-	  
-	  <div class="col-sm-4 p-2">
-	    <div class="card">
-	      <div class="card-body">
-	        <h5 class="card-title">Special title treatment</h5>
-	        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-	        <a href="#" class="btn btn-primary">Go somewhere</a>
-	      </div>
-	    </div>
-	  </div>
-	  
-	  <div class="col-sm-4 p-2">
-	    <div class="card">
-	      <div class="card-body">
-	        <h5 class="card-title">Special title treatment</h5>
-	        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-	        <a href="#" class="btn btn-primary">Go somewhere</a>
-	      </div>
-	    </div>
-	  </div> 
-	  
-	</div>
+		<section class="main-form">
+			<h1>Wellcome ${company.name}</h1>
+			<h3>add your Vacancies here!</h3>
 		</section>
-	
+
+
+
+
+
+
+		<form:form class="mx-auto text-center w-50 mb-5 mt-5"
+			action="/submitVacancy" method="post" modelAttribute="newVacancy">
+			<!-- Hidden field for ID (for update operation) -->
+			<form:input type="hidden" path="company" value="${company.id}"></form:input>
+
+			<div class="form-group">
+				<!-- Vacancy Name -->
+				<label for="name">Vacancy Name:</label>
+				<form:input type="text" class="form-control" id="name" path="name"></form:input>
+			</div>
+
+			<div class="form-group">
+				<!-- Description -->
+				<label for="description">Description:</label>
+				<form:textarea class="form-control" id="description"
+					path="description" rows="4"></form:textarea>
+			</div>
+
+			<div class="form-group">
+				<!-- City -->
+				<label for="city">City:</label>
+				<form:select class="form-control" id="city" path="city">
+					<!-- Populate this dropdown with city options from your database -->
+					<c:forEach var="city" items="${cities}">
+						<form:option path="city" value="${city}">${city.name}</form:option>
+					</c:forEach>
+					<!-- Add more options as needed -->
+				</form:select>
+			</div>
+
+			<div class="form-group">
+				<!-- Work Categories -->
+				<label class="col-form-label">Work Categories:</label>
+				<div class="form-row">
+					<!-- Populate this checkbox list with work category options from your database -->
+					<c:forEach var="category" items="${categories}">
+						<div class="form-check col-md-3">
+							<input class="form-check-input" type="checkbox" id="category1"
+								name="selected" value="${category.id}"> <label
+								class="form-check-label" for="category1">${category.title}</label>
+						</div>
+					</c:forEach>
+
+				</div>
+			</div>
+
+			<!-- Add more fields as needed -->
+
+			<!-- Submit Button -->
+			<button type="submit" class="btn btn-primary">Add Vacancy</button>
+		</form:form>
+
+
+
+
+
+
+		<section class="section-border m-1">
+			<h3>Vacancy List</h3>
+		</section>
+
+
+		<section class="section-job w-75 mx-auto text-center mb-4">
+			<h3 class="job-font">History of Vacancies</h3>
+			<div class="row">
+
+			<c:forEach var="vacancy" items="${vacancies}">
+				<div class="col-sm-4 p-2">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">${vacancy.name}</h5>
+							<p class="card-text">${vacancy.description}</p>
+							<p>
+								<button class="btn btn-primary" type="button"
+									data-bs-toggle="collapse" data-bs-target="#collapse${vacancy.id}"
+									aria-expanded="false" aria-controls="collapse${vacancy.id}">
+									Toggle Applicants</button>
+							</p>
+							<div class="collapse" id="collapse${vacancy.id}">
+								<div class="card card-body">Some placeholder content for
+									the collapse component. This panel is hidden by default but
+									revealed when the user activates the relevant trigger.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</c:forEach>
+
+				
+			</div>
+		</section>
+
 	</main>
-	
+
 
 
 
@@ -209,7 +178,7 @@
 	<footer
 		class="text-center text-lg-start bg-body-tertiary footer-general">
 		<!-- Section: Social media -->
-		
+
 		<!-- Section: Social media -->
 
 		<!-- Section: Links  -->
