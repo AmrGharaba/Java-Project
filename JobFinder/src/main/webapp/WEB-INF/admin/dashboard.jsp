@@ -15,6 +15,8 @@
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="/style/style2.css">
+<link rel="stylesheet" href="/style/style.css">
+<link rel="stylesheet" href="/style/styleindex.css">
 
 </head>
 <body>
@@ -24,16 +26,9 @@
 		<nav
 			class="navbar navbar-expand-lg navbar-light bg-transparent border-bottom">
 			<div class="container">
-				<a class="navbar-brand text-white" href="/"><h1>Job Finder
-						PS</h1></a>
+				<a class="navbar-brand text-white" href="/"><h1>Job Finder PS</h1></a>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link text-white"
-							href="#">Home</a></li>
-						<li class="nav-item active"><a class="nav-link text-white"
-							href="#">Categories</a></li>
-						<li class="nav-item active"><a class="nav-link text-white"
-							href="#">Vacancies</a></li>
 						<li class="nav-item active"><a class="nav-link text-white"
 							href="/login">Log In</a></li>
 					</ul>
@@ -47,21 +42,22 @@
 
 
 
-
+       
+	
 
 	<!-- Main Content -->
-	<main class="container mt-4 mb-4">
-		<div class="row justify-content-around">
+	<main class="container mt-4 mb-4" >
+	<section class="section-border m-1 main-form">
+		<h3>Add  City</h3>
+		</section>
+		<!-- City card -->
+		
+		<div class="col-md-3">
 
-
-
-			<!-- City card -->
-			<div class="col-md-3">
 				<div class="card">
 					<div class="card-body">
 						<h5 class="card-title">Cities</h5>
-						
-						
+					
 						
 						<form:form action="/admin/dashboard/addCity" method="post"
 							modelAttribute="newCity">
@@ -74,10 +70,8 @@
 								</div>
 							</div>
 						</form:form>
-						
-						
-						
 					</div>
+					
 					<ul class="list-group list-group-flush">
 						<ul class="list-group">
 						<c:if test="${!cities.isEmpty()}">
@@ -94,38 +88,79 @@
 					</ul>
 				</div>
 			</div>
-			<!-- end of city card -->
-
-
-			<!-- users card -->
+			
+			  <!-- Work Category card -->
 			<div class="col-md-3">
 				<div class="card">
-					<div class=" card-body">
-						<h5 class="card-title">Users</h5>
+					<div class="card-body">
+						<h5 class="card-title">Work Catagory</h5>
+						<form:form action="/admin/dashboard/addCategory" method="post"
+							modelAttribute="newCategory">
+							<div class="form-group">
+								<div class="d-flex justify-content-between align-items-center">
+									<form:input path="title" type="text"
+										class="form-control form-control-sm mr-2"
+										placeholder="Enter Category"></form:input>
+									<button type="submit" class="btn btn-sm btn-primary ">Add</button>
+								</div>
+							</div>
+						</form:form>
 					</div>
 					<ul class="list-group list-group-flush">
 						<ul class="list-group">
-							<c:if test="${!user.isEmpty()}">
-								<c:forEach var="user" items="${users}">
-									<li class="list-group-item">
-										<div class="d-flex justify-content-between align-items-center">
-											<a href="">${user.firstName} ${user.lastName}</a>
-											<div class="d-flex flex-row">
-												<button type="button" class="btn btn-sm btn-danger mr-2">Delete</button>
-												<button type="button" class="btn btn-sm btn-primary">Make Admin</button>
-											</div>
-										</div>
-									</li>
-								</c:forEach>
+						<c:if test="${!workCategories.isEmpty()}">
+						<c:forEach var="category" items="${workCategories}">
+							<li class="list-group-item">
+								<div class="d-flex justify-content-between align-items-center">
+									${category.title}
+									<button type="button" class="btn btn-sm btn-danger">Delete</button>
+								</div>
+							</li>
+							</c:forEach>
 							</c:if>
 
 						</ul>
 					</ul>
 				</div>
 			</div>
-			<!-- end of users card -->
+			<!-- end of Work Category card -->
+			
+			<!-- end of city card -->
+			
+			<section class="section-border m-1 main-form">
+		   <h3>Users</h3>
+		  </section>
+		  <!-- users card -->
+<div class="row mx-auto text-center">
+       
+	 <c:if test="${!user.isEmpty()}">
+	 
+	  <c:forEach var="user" items="${users}">
+	   <div class="col-sm-3 p-2">
+	<div class="d-flex justify-content-between align-items-center">
+		<a href="">${user.firstName} ${user.lastName}</a>
+		<div class="d-flex flex-row">
+			<button type="button" class="btn btn-sm btn-danger mr-2">Delete</button>
+			<button type="button" class="btn btn-sm btn-primary">Make Admin</button>
+		</div>
+	</div>
+	   </div>
+	   </c:forEach>
+	    </c:if>
+	  </div>
+	 
+	  <!--  end foor loop -->
+	 
+	
+	
 
-			<!-- Companies card -->
+
+			<!-- end of users card -->
+			<section class="section-border m-1 main-form">
+		   <h3>Companies</h3>
+		  </section>
+		  
+		  	<!-- Companies card -->
 			<div class="col-md-3">
 				<div class="card">
 					<div class=" card-body">
@@ -150,63 +185,9 @@
 				</div>
 			</div>
 			<!-- end of Companies card -->
-
-			<!-- Work Category card -->
-			<div class="col-md-3">
-				<div class="card">
-					<div class="card-body">
-						<h5 class="card-title">Work Catagory</h5>
-						
-						
-						
-						
-						<form:form action="/admin/dashboard/addCategory" method="post"
-							modelAttribute="newCategory">
-							<div class="form-group">
-								<div class="d-flex justify-content-between align-items-center">
-									<form:input path="title" type="text"
-										class="form-control form-control-sm mr-2"
-										placeholder="Enter Category"></form:input>
-									<button type="submit" class="btn btn-sm btn-primary ">Add</button>
-								</div>
-							</div>
-						</form:form>
-						
-						
-						
-						
-					</div>
-					<ul class="list-group list-group-flush">
-						<ul class="list-group">
-						<c:if test="${!workCategories.isEmpty()}">
-						<c:forEach var="category" items="${workCategories}">
-							<li class="list-group-item">
-								<div class="d-flex justify-content-between align-items-center">
-									${category.title}
-									<button type="button" class="btn btn-sm btn-danger">Delete</button>
-								</div>
-							</li>
-							</c:forEach>
-							</c:if>
-
-						</ul>
-					</ul>
-				</div>
-			</div>
-			<!-- end of Work Category card -->
-
-
-
-
-
-
-
-
-
-
-
-
-		</div>
+			
+			
+		     
 	</main>
 
 
