@@ -26,5 +26,9 @@ public class VacancyService {
 		return vacancies;
 		
 	}
+	public void saveVacancy(Vacancy vacancy) {
+		vacancyRepository.save(vacancy);
+	}
+
 
 }

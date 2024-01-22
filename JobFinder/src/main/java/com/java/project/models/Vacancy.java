@@ -19,7 +19,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 @Entity
@@ -121,6 +120,8 @@ public class Vacancy {
 		this.users = users;
 	}
 
+
+
 	public List<WorkCategory> getWorkCategories() {
 		return workCategories;
 	}
@@ -129,6 +130,7 @@ public class Vacancy {
 	public void setWorkCategories(List<WorkCategory> workCategories) {
 		this.workCategories = workCategories;
 	}
+
 
 	public Date getCreatedAt() {
 		return createdAt;
