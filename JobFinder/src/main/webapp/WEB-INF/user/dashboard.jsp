@@ -12,24 +12,46 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>User dashboard</title>
-<link rel="stylesheet" href="/style/styleindex.css">
-
+<title>Insert title here</title>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-
+<link rel="stylesheet" href="/style/styleindex.css">
 </head>
 
-<body class="body">
+<body class=body>
 	<header>
-	<div class="container">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-    </div>
-  </nav>
-</div>
-</header>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">JobFinder</a>
+
+                <!-- Button for mobile navigation toggle -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contactus">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Log In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/vacancy">Vacancies</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+	    </div>
+	</header>
 
 	<!--  end Header -->
 
@@ -107,7 +129,7 @@
 		<div class="card mb-3" style="max-width: 540px;">
 			<div class="row g-0">
 				<div class="col-md-4">
-					<img src="/images/career.jpg" class="img-fluid rounded-start" alt="..."/>	
+					<img src="images/career.jpg" class="img-fluid rounded-start" alt="..."/>	
 				</div>
 				<div class="col-md-8">
 				<div  class="cardbody">
