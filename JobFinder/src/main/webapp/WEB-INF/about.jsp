@@ -1,13 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- c:out ; c:forEach etc. -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!-- Formatting (dates) -->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
 <!-- form:form -->
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!-- for rendering errors on PUT routes -->
-<%@ page isErrorPage="true"%>
+<%@ page isErrorPage="true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,54 +14,88 @@
 <title>Insert title here</title>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="/style/style.css">
-<link rel="stylesheet" type="text/css" href="/style/about.css">
+<link rel="stylesheet" href="/style/styleindex.css">
 </head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body class="body">
-   	<header>
-	<div class="container">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-    </div>
-  </nav>
-</div>
-</header>
+<body class=body>
+
+<header>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">JobFinder</a>
+
+                <!-- Button for mobile navigation toggle -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contactus">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Log In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/vacancy">Vacancies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/aboutus">About Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+	    </div>
+	</header>
+	<!--  end Header -->
+
+
+
+
+	<!-- Main Section -->
+	<main>
+	
+	
+	<section class="main-form">
+			<h1>Wellcome</h1>
+			<h3>About JobFinder Palestine</h3>
+		</section>
+	
+	  <section class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>About Us</h2>
+                <p class="lead">JobFinder is committed to revolutionizing the job search experience. We strive to connect talented individuals with exciting career opportunities effortlessly. Our platform is designed to streamline the entire job search and application process, ensuring a seamless experience for both job seekers and employers.</p>
+                <p>We provide a user-friendly interface with advanced search features, empowering users to explore a diverse range of job listings. JobFinder's mission is to foster a dynamic and inclusive job market by delivering innovative solutions that bridge the gap between employers and job seekers.</p>
+            </div>
+
+            <div class="col-md-6">
+                <img src="/images/logo.jpg" alt="Logo Image" class="img-fluid">
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="#" class="btn btn-primary">Explore Our Vacancies</a>
+        </div>
+    </section>
     
     
-   
-  
-   
-   <!--  <h1>About Job Finder</h1>  -->
-   <div class="about">
-   <div class="div">
-   <h1>About Job Finder</h1> 
-   <p>The company has been operating in the online recruitment market since 2006.<br> In its — years of existence, 
-   the company has gone from a startup founded by two students(Roman Prokofiev, Eugene Sobakarov) to a global employment platform,<br>
-   a search engine where all vacancies are collected in one place. Today, Jooble is among the TOP-10 websites in the world in terms 
-   of traffic in the Jobs And Employment segment,<br>according to SimilarWeb.Dmytro Gryn is CEO of Jooble Job Aggregator.</p>
-   <div> <p class="d-inline-flex gap-1">
-  <a href="#" class="btn active" role="button" data-bs-toggle="button" aria-pressed="true">Visit Our Vacancies</a>
-</p>
-</div>
-</div>
- 
-   <picture>
-  <source srcset="images/Image-Frame.png" type="image/svg+xml">
-  <img src="..." class="img-fluid img-thumbnail" alt="...">
-</picture>
-</div>
-
-
-
-
-
-
-
-<!-- Footer -->
+	
+	</main>
+	
+	
+	
+	
+	
+	
+	<!-- Footer -->
 	<footer
 		class="text-center text-lg-start bg-body-tertiary footer-general">
 		<!-- Section: Social media -->

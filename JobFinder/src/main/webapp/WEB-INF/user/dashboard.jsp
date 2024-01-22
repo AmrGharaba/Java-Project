@@ -46,6 +46,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/vacancy">Vacancies</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/aboutus">About Us</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -105,7 +108,35 @@
 	        <a href="#" class="btn btn-primary">Go somewhere</a>
 	      </div>
 	    </div>
-	  </div>
+	   </div>
+	    <div class="col-sm-4 p-2">
+	    <div class="card">
+	      <div class="card-body">
+	        <h5 class="card-title">Special title treatment</h5>
+	        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+	        <a href="#" class="btn btn-primary">Go somewhere</a>
+	      </div>
+	    </div>
+	   </div>
+	    <div class="col-sm-4 p-2">
+	    <div class="card">
+	      <div class="card-body">
+	        <h5 class="card-title">Special title treatment</h5>
+	        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+	        <a href="#" class="btn btn-primary">Go somewhere</a>
+	      </div>
+	    </div>
+	   </div>
+	    <div class="col-sm-4 p-2">
+	    <div class="card">
+	      <div class="card-body">
+	        <h5 class="card-title">Special title treatment</h5>
+	        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+	        <a href="#" class="btn btn-primary">Go somewhere</a>
+	      </div>
+	    </div>
+	   </div>
+	  
 	  <!--  end foor loop -->
 	 
 	  

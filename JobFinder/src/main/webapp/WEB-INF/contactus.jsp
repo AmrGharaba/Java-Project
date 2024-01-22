@@ -47,6 +47,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/vacancy">Vacancies</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/aboutus">About Us</a>
+                        </li>
                     </ul>
                 </div>
             </div>
