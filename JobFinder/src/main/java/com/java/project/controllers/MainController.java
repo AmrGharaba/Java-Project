@@ -138,6 +138,11 @@ public class MainController {
 			return "redirect:/company/dashboard.jsp";
 		}
 	}
+	
+	@GetMapping("/")
+	public String index() {
+		return "index.jsp";
+	}
 
 	
 	

@@ -1,0 +1,76 @@
+@charset "ISO-8859-1";
+
+ .body{
+	background-color:#EEEEEE;
+} 
+
+
+
+.align-items-center {
+justify-content: center !important;
+margin-top: 2% !important;
+width: auto;
+	
+}
+
+.main-form{
+ text-align: center;
+ background: #548CA8;
+ padding: 5%;
+ display: grid;
+ justify-content: space-around;
+ color: #EEEEEE;
+	
+}
+
+ .job-form{
+   margin-top: 2%;
+  display: flex;
+  justify-content: space-around; 
+} 
+
+.job-font{
+  text-align: center;
+}
+
+.section-job{
+  margin-top: 2%;
+}
+
+.user-apply{
+ display: flex;
+ margin-top: 2%;
+ justify-content: center;
+}
+
+.img-fluid {
+   max-width: 150% !important;
+   height: 100% !important;
+}
+
+.cardbody{
+	padding-left: 25%;
+	border: none !important;
+}
+
+.mb-3{
+  border: none !important;
+}
+
+.rounded-start {
+  border-top-right-radius: 0.375rem !important;
+  border-bottom-right-radius: 0.375rem !important;
+}
+
+.card-body{
+	background-color:#EEEEEE;
+}
+
+.footer-general{
+background-color:#476072;
+padding-top: 1%;
+	
+}
+
+
+
