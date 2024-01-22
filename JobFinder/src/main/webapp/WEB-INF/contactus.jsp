@@ -15,10 +15,12 @@
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="/style/styleindex.css">
+
 </head>
 <body class=body>
 
-<header>
+
+	<header>
     <div class="container">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -51,75 +53,70 @@
         </nav>
 	    </div>
 	</header>
+
 	<!--  end Header -->
-
-
-
-
-	<!-- Main Section -->
-	<main>
 	
-	
-	
-	<section class="main-form w-100">
-		<h1>Wellcome </h1>
-		<h3>Login as Employer!</h3>
+
+
+
 
 		
+		<!-- Main Content -->
+	<main class="mb-4">
+	
+	
+	<section class="main-form">
+		<h1>Contact Us</h1>
+		<h3>feel Free to reach us any Time!</h3>
 	</section>
 	
 	
 	
-    <div class="row justify-content-around">
-        <div class="col-lg-4">
-            <h2 class="text-center mb-4">Registration</h2>
-            <form:form action="/companyRegister" method="post" modelAttribute="newCompany">
-                <div class="form-group">
-                    <form:label path="name">Name:</form:label>
-                    <form:errors path="name"/>
-                    <form:input path="name" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <form:label path="email">Email:</form:label>
-                    <form:errors path="email"/>
-                    <form:input path="email" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <form:label path="password">Password:</form:label>
-                    <form:errors path="password"/>
-                    <form:input type="password" path="password" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <form:label path="confirm">Confirm PW:</form:label>
-                    <form:errors path="confirm"/>
-                    <form:input type="password" path="confirm" class="form-control"/>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form:form>
-        </div>
-
-        <div class="col-lg-4">
-            <h2 class="text-center mb-4">Login</h2>
-            <form:form action="/companyLogin" method="post" modelAttribute="company">
-                <div class="form-group">
-                    <form:label path="email">Email:</form:label>
-                    <form:errors path="email"/>
-                    <form:input type="email" path="email" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <form:label path="password">Password:</form:label>
-                    <form:errors path="password"/>
-                    <form:input type="password" path="password" class="form-control"/>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form:form>
-        </div>
-    </div>
-
-    <div class="text-center mt-4">
-        <a href="/login" class="btn btn-link">Login As User</a>
-    </div>
+	
+	<div class="container mt-5">
+	    <h2 class="mb-4">Contact Us</h2>
+	
+	    <div class="row">
+	        <!-- Email Section -->
+	        <div class="col-md-6">
+	            <h5>Email</h5>
+	            <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+	        </div>
+	
+	        <!-- Phone Section -->
+	        <div class="col-md-6">
+	            <h5>Phone</h5>
+	            <p>Phone: +1 (123) 456-7890</p>
+	        </div>
+	    </div>
+	
+	    <div class="row mt-4">
+	        <!-- Location Section -->
+	        <div class="col-md-6">
+	            <h5>Location</h5>
+	            <p>123 Street, City, Country</p>
+	        </div>
+	
+	        <!-- Fax Section -->
+	        <div class="col-md-6">
+	            <h5>Fax</h5>
+	            <p>Fax: +1 (123) 456-7891</p>
+	        </div>
+	    </div>
+	
+	    <div class="row mt-4">
+	        <!-- Google Map Section (Replace with your actual Google Map embed code) -->
+	        <div class="col-md-12">
+	            <h5>Google Map</h5>
+	            <img src="https://via.placeholder.com/1200x300" alt="Google Map Placeholder" class="img-fluid">
+	        </div>
+	    </div>
+	</div>
+	
 	</main>
+
+	
+	
 	
 	
 	
@@ -128,7 +125,7 @@
 	
 	<!-- Footer -->
 	<footer
-		class="text-center text-lg-start bg-body-tertiary footer-general">
+		class="text-center text-lg-start bg-body-tertiary footer-general mt-5">
 		<!-- Section: Social media -->
 		
 		<!-- Section: Social media -->

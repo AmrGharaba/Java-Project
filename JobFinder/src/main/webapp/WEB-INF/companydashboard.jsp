@@ -1,12 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!-- c:out ; c:forEach etc. -->
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- Formatting (dates) -->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!-- form:form -->
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!-- for rendering errors on PUT routes -->
-<%@ page isErrorPage="true" %>
+<%@ page isErrorPage="true"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,13 +17,13 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="/style/styleindex.css">
 </head>
-<body class=body>
 
-<header>
+<body class="body">
+	<header>
     <div class="container">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">JobFinder</a>
+                <a class="navbar-brand" href="#">JobFinder</a>
 
                 <!-- Button for mobile navigation toggle -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -51,81 +52,99 @@
         </nav>
 	    </div>
 	</header>
+
+
 	<!--  end Header -->
 
 
 
 
-	<!-- Main Section -->
+
 	<main>
 	
 	
-	
-	<section class="main-form w-100">
-		<h1>Wellcome </h1>
-		<h3>Login as Employer!</h3>
-
-		
+	<section class="main-form">
+		<h1>Wellcome {Company Name}</h1>
+		<h3>add your Vacancies here!</h3>
 	</section>
 	
 	
 	
-    <div class="row justify-content-around">
-        <div class="col-lg-4">
-            <h2 class="text-center mb-4">Registration</h2>
-            <form:form action="/companyRegister" method="post" modelAttribute="newCompany">
-                <div class="form-group">
-                    <form:label path="name">Name:</form:label>
-                    <form:errors path="name"/>
-                    <form:input path="name" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <form:label path="email">Email:</form:label>
-                    <form:errors path="email"/>
-                    <form:input path="email" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <form:label path="password">Password:</form:label>
-                    <form:errors path="password"/>
-                    <form:input type="password" path="password" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <form:label path="confirm">Confirm PW:</form:label>
-                    <form:errors path="confirm"/>
-                    <form:input type="password" path="confirm" class="form-control"/>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form:form>
-        </div>
+	
+	
+	
+	<form class="mx-auto text-center w-50 mb-5 mt-5" action="/submitVacancy" method="post">
+	    <!-- Hidden field for ID (for update operation) -->
+	    <input type="hidden" name="id" value="">
+	    
+	    <div class="form-group">
+	        <!-- Vacancy Name -->
+	        <label for="name">Vacancy Name:</label>
+	        <input type="text" class="form-control" id="name" name="name" required>
+	    </div>
+	
+	    <div class="form-group">
+	        <!-- Description -->
+	        <label for="description">Description:</label>
+	        <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+	    </div>
+	
+	    <div class="form-group">
+	        <!-- City -->
+	        <label for="city">City:</label>
+	        <select class="form-control" id="city" name="cityId" required>
+	            <!-- Populate this dropdown with city options from your database -->
+	            <option value="1">City X</option>
+	            <option value="2">City Y</option>
+	            <!-- Add more options as needed -->
+	        </select>
+	    </div>
+	
+	    <div class="form-group">
+	    <!-- Work Categories -->
+	    <label class="col-form-label">Work Categories:</label>
+	    <div class="form-row">
+	        <!-- Populate this checkbox list with work category options from your database -->
+	        <div class="form-check col-md-3">
+	            <input class="form-check-input" type="checkbox" id="category1" name="workCategories" value="1">
+	            <label class="form-check-label" for="category1">Category 1</label>
+	        </div>
+	        <div class="form-check col-md-3">
+	            <input class="form-check-input" type="checkbox" id="category2" name="workCategories" value="2">
+	            <label class="form-check-label" for="category2">Category 2</label>
+	            <!-- Add more checkboxes as needed -->
+	        </div>
+	    </div>
+	</div>
+		
+	    <!-- Add more fields as needed -->
+	
+	    <!-- Submit Button -->
+	    <button type="submit" class="btn btn-primary">Add Vacancy</button>
+	</form>
 
-        <div class="col-lg-4">
-            <h2 class="text-center mb-4">Login</h2>
-            <form:form action="/companyLogin" method="post" modelAttribute="company">
-                <div class="form-group">
-                    <form:label path="email">Email:</form:label>
-                    <form:errors path="email"/>
-                    <form:input type="email" path="email" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <form:label path="password">Password:</form:label>
-                    <form:errors path="password"/>
-                    <form:input type="password" path="password" class="form-control"/>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form:form>
-        </div>
-    </div>
-
-    <div class="text-center mt-4">
-        <a href="/login" class="btn btn-link">Login As User</a>
-    </div>
+			
+	
+	
+	
+	
+	<section class="section-border m-1">
+		<h3>Vacancy List</h3>
+	</section>
+	
 	</main>
 	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
 	<!-- Footer -->
 	<footer
 		class="text-center text-lg-start bg-body-tertiary footer-general">
@@ -221,6 +240,7 @@
 		<!-- Copyright -->
 	</footer>
 	<!-- Footer -->
+
 
 </body>
 </html>
