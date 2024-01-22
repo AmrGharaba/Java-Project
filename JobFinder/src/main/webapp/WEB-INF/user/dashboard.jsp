@@ -92,38 +92,27 @@
 	</section>
 	<!--  end form -->
 
-	<section class="section-job">
+	<section class="section-job w-75 mx-auto text-center">
 		<h3 class="job-font">Find the right job Sectors</h3>
-		<div class="job-form">
-			<div class="card" style="width: 18rem;">
-				<div class="card-body">
-					<h5 class="card-title">Special title treatment</h5>
-					<p class="card-text">With supporting text below as a natural
-						lead-in to additional content.</p>
-					<a href="#" class="btn btn-primary">Apply Now</a>
-				</div>
-			</div>
-
-			<div class="card" style="width: 18rem;">
-				<div class="card-body">
-					<h5 class="card-title">Special title treatment</h5>
-					<p class="card-text">With supporting text below as a natural
-						lead-in to additional content.</p>
-					<a href="#" class="btn btn-primary">Apply Now</a>
-				</div>
-			</div>
-
-			<div class="card" style="width: 18rem;">
-				<div class="card-body">
-					<h5 class="card-title">Special title treatment</h5>
-					<p class="card-text">With supporting text below as a natural
-						lead-in to additional content.</p>
-					<a href="#" class="btn btn-primary">Apply Now</a>
-				</div>
-			</div>
-
-		</div>
-	</section>
+		<div class="row">
+		
+			<!--  add for loop herererere -->
+	  <div class="col-sm-4 p-2">
+	    <div class="card">
+	      <div class="card-body">
+	        <h5 class="card-title">Special title treatment</h5>
+	        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+	        <a href="#" class="btn btn-primary">Go somewhere</a>
+	      </div>
+	    </div>
+	  </div>
+	  <!--  end foor loop -->
+	 
+	  
+	</div>
+		</section>
+		<!--  End Card Section -->
+		
 
 	<section class="user-apply">
 		<div class="card mb-3" style="max-width: 540px;">
