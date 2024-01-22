@@ -196,7 +196,19 @@ public class MainController {
 		
 	}
 	
+	@GetMapping("/companyDashboard")
+	public String cdashboard() {
+		return "companydashboard.jsp";
+	}
+	@GetMapping("/contactus")
+	public String contactus() {
+		return "contactus.jsp";
+	}
 	
+	@GetMapping("/vacancy")
+	public String vacancy() {
+		return "companydashboard.jsp";
+	}
 	
 	
 	

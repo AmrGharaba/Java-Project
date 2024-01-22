@@ -23,6 +23,16 @@ width: auto;
 	
 }
 
+.section-border{
+ text-align: center;
+ background: #548CA8;
+ padding: 1%;
+ display: grid;
+ justify-content: space-around;
+ color: #EEEEEE;
+	
+}
+
  .job-form{
    margin-top: 2%;
   display: flex;
