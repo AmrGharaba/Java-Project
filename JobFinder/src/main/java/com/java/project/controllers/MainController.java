@@ -9,16 +9,19 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.java.project.models.City;
 import com.java.project.models.Company;
 import com.java.project.models.LoginCompany;
 import com.java.project.models.LoginUser;
 import com.java.project.models.User;
+import com.java.project.models.Vacancy;
 import com.java.project.models.WorkCategory;
 import com.java.project.services.CityService;
 import com.java.project.services.CompanyService;
 import com.java.project.services.UserService;
+import com.java.project.services.VacancyService;
 import com.java.project.services.WorkCategoryService;
 
 import jakarta.servlet.http.HttpSession;
@@ -34,6 +37,8 @@ public class MainController {
 	private CityService cityService;
 	@Autowired
 	private WorkCategoryService workCategoryService;
+	@Autowired
+	private VacancyService vacancyService;
 	
 	
 	
@@ -156,13 +161,53 @@ public class MainController {
 			return "redirect:/company/dashboard.jsp";
 		}
 	}
+	///////////// end of company login and registration	
+	
+	////////// user dashboard
 	
 	@GetMapping("/")
-	public String index() {
-		return "index.jsp";
+	public String index(HttpSession session, Model model) {
+		List<City> cities = cityService.listCities();
+		List<WorkCategory> categories = workCategoryService.listWorkCategories();
+		model.addAttribute("cities", cities);
+		model.addAttribute("categories", categories);
+		model.addAttribute("vacancyFilter", new Vacancy());
+		return "user/dashboard.jsp";
 	}
+//////////user dashboard
+	
+	/////////////// vacancy filter for user dashboard
+	@PostMapping("/vacancy/filter")
+	public String vacancyFilter(@ModelAttribute("vacancyFilter") Vacancy vacancyFilter, HttpSession session,Model model,
+			@RequestParam(value="categoryId") Long categoryId) {
+		WorkCategory category = workCategoryService.findWorkCategory(categoryId);
+		
+		List<Vacancy> vacancies = vacancyService.filterVacancies(vacancyFilter, category);
+		System.out.println(vacancies);
+		
+		System.out.println(category.getTitle());
+		System.out.println(vacancyFilter.getDescription());
+		System.out.println(vacancyFilter.getCity().getName());
+//		System.out.println(vacancyFilter.getWorkCategories());
+		
+		
+		
+		
+		
+		List<City> cities = cityService.listCities();
+		List<WorkCategory> categories = workCategoryService.listWorkCategories();
+		model.addAttribute("cities", cities);
+		model.addAttribute("categories", categories);
+		model.addAttribute("vacancyFilter", vacancyFilter);
+//		model.addAttribute("vacancyFilter", vacancies);
+		return "user/dashboard.jsp";
+		
+	}
+	
+	
+/////////////// vacancy filter for user dashboard
 
-	///////////// end of company login and registration	
+
 	
 	//////////// Admin dashboard
 	
