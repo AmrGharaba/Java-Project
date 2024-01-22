@@ -77,7 +77,7 @@ public class MainController {
 			// TO-DO Later: Store their ID from the DB in session,
 			// in other words, log them in.
 
-			return "redirect:/user/dashboard.jsp";
+			return "redirect:/";
 		}
 
 	}
