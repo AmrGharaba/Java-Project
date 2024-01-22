@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.java.project.models.Vacancy;
 import com.java.project.models.WorkCategory;
 import com.java.project.repositories.WorkCategoryRepository;
 
@@ -23,5 +24,9 @@ public class WorkCategoryService {
 	public void addCategory(WorkCategory newCategory) {
 		workCategoryRepository.save(newCategory);
 	}
-
+	public void addVacancy(WorkCategory category, Vacancy vacancy) {
+		category.getVacancies().add(vacancy);
+		workCategoryRepository.save(category);
+		
+	}
 }

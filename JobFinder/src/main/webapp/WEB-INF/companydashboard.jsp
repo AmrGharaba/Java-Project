@@ -64,7 +64,7 @@
 	
 	
 	<section class="main-form">
-		<h1>Wellcome {Company Name}</h1>
+		<h1>Wellcome ${company.name}</h1>
 		<h3>add your Vacancies here!</h3>
 	</section>
 	
@@ -73,31 +73,32 @@
 	
 	
 	
-	<form class="mx-auto text-center w-50 mb-5 mt-5" action="/submitVacancy" method="post">
+	<form:form class="mx-auto text-center w-50 mb-5 mt-5" action="/submitVacancy" method="post" modelAttribute="newVacancy">
 	    <!-- Hidden field for ID (for update operation) -->
-	    <input type="hidden" name="id" value="">
+	    <form:input type="hidden" path="company" value="${company.id}"></form:input>
 	    
 	    <div class="form-group">
 	        <!-- Vacancy Name -->
 	        <label for="name">Vacancy Name:</label>
-	        <input type="text" class="form-control" id="name" name="name" required>
+	        <form:input type="text" class="form-control" id="name" path="name"></form:input>
 	    </div>
 	
 	    <div class="form-group">
 	        <!-- Description -->
 	        <label for="description">Description:</label>
-	        <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+	        <form:textarea class="form-control" id="description" path="description" rows="4"></form:textarea>
 	    </div>
 	
 	    <div class="form-group">
 	        <!-- City -->
 	        <label for="city">City:</label>
-	        <select class="form-control" id="city" name="cityId" required>
+	        <form:select class="form-control" id="city" path="city">
 	            <!-- Populate this dropdown with city options from your database -->
-	            <option value="1">City X</option>
-	            <option value="2">City Y</option>
+	            <c:forEach var="city" items="${cities}">
+	            <form:option path="city" value="${city}">${city.name}</form:option>
+	            </c:forEach>
 	            <!-- Add more options as needed -->
-	        </select>
+	        </form:select>
 	    </div>
 	
 	    <div class="form-group">
@@ -105,15 +106,13 @@
 	    <label class="col-form-label">Work Categories:</label>
 	    <div class="form-row">
 	        <!-- Populate this checkbox list with work category options from your database -->
+	        <c:forEach var="category" items="${categories}">
 	        <div class="form-check col-md-3">
-	            <input class="form-check-input" type="checkbox" id="category1" name="workCategories" value="1">
-	            <label class="form-check-label" for="category1">Category 1</label>
+	            <input class="form-check-input" type="checkbox" id="category1" name="selected" value="${category.id}">
+	            <label class="form-check-label" for="category1">${category.title}</label>
 	        </div>
-	        <div class="form-check col-md-3">
-	            <input class="form-check-input" type="checkbox" id="category2" name="workCategories" value="2">
-	            <label class="form-check-label" for="category2">Category 2</label>
-	            <!-- Add more checkboxes as needed -->
-	        </div>
+	        </c:forEach>
+
 	    </div>
 	</div>
 		
@@ -121,7 +120,7 @@
 	
 	    <!-- Submit Button -->
 	    <button type="submit" class="btn btn-primary">Add Vacancy</button>
-	</form>
+	</form:form>
 
 			
 	

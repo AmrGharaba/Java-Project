@@ -78,7 +78,7 @@ public class User {
 	        inverseJoinColumns = @JoinColumn(name = "workCategory_id")
 			)
 	private List<User> users;	
-    
+   
     // This will not allow the createdAt column to be updated after creation
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")

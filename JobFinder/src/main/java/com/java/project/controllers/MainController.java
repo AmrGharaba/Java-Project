@@ -1,5 +1,6 @@
 package com.java.project.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -139,7 +140,7 @@ public class MainController {
 			// TO-DO Later: Store their ID from the DB in session,
 			// in other words, log them in.
 
-			return "redirect:/company/dashboard.jsp";
+			return "redirect:/companyDashboard";
 		}
 
 	}
@@ -158,7 +159,7 @@ public class MainController {
 		} else {
 			session.setAttribute("loginId", company.getId());
 
-			return "redirect:/company/dashboard.jsp";
+			return "redirect:/companyDashboard";
 		}
 	}
 	///////////// end of company login and registration	
@@ -242,9 +243,39 @@ public class MainController {
 	}
 	
 	@GetMapping("/companyDashboard")
-	public String cdashboard() {
+	public String cdashboard(HttpSession session, Model model) {
+		List<WorkCategory> categories = workCategoryService.listWorkCategories();
+		Long comapanyId = (Long) session.getAttribute("loginId");
+		Company company = companyService.find_Company(comapanyId);
+		List<City> cities = cityService.listCities();
+		List<Vacancy> vacancies = company.getVacancies();
+		model.addAttribute("company",company);
+		model.addAttribute("categories", categories);
+		model.addAttribute("cities", cities);
+		model.addAttribute("newVacancy", new Vacancy());
+		model.addAttribute("company", company);
 		return "companydashboard.jsp";
 	}
+	
+	@PostMapping("/submitVacancy")
+	public String createVacancy(HttpSession session, Model model, @RequestParam(value = "selected") String[] categories, 
+			@ModelAttribute("newVacancy") Vacancy newVacancy) {
+		vacancyService.saveVacancy(newVacancy);
+		Vacancy vacancy = vacancyService.findVacancy(newVacancy.getId());
+		for(String categoryId : categories) {
+			
+			Long id = Long.parseLong(categoryId);
+			WorkCategory category = workCategoryService.findWorkCategory(id);
+			workCategoryService.addVacancy(category, vacancy);
+		}
+		
+		return "redirect:/companyDashboard";
+		
+	}
+	
+	
+	
+	
 	@GetMapping("/contactus")
 	public String contactus() {
 		return "contactus.jsp";
