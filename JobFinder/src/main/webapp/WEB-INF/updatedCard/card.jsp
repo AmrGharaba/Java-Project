@@ -18,12 +18,12 @@ width:100%;
 display: flex;
 }
 </style>
-<div class="cards" id="vacancies-container">
+<div class="cards w-75" id="vacancies-container">
 <c:if  test="${empty vacancies}">
     <p class="EmptyMessage">No vacancies available now.</p>
 </c:if>
     <c:forEach var="vacancy" items="${vacancies}">
-        <div class="card">
+        <div class="filter-card">
             <img src="https://i.pngimg.me/image_by_url?url=https://image.freepik.com/free-vector/job-vacancy-background-with-chair_23-2147868094.jpg" alt="Vacancy Image">
             <div class="container">
                 <h4><b>${vacancy.name}</b></h4>
@@ -33,7 +33,9 @@ display: flex;
                     </c:forEach>
                 </div>
                 <p>${vacancy.description}</p>
+                <a class="text-center mx-auto btn" href="#">Apply</a>
             </div>
+            
         </div>
     </c:forEach>
 </div>
