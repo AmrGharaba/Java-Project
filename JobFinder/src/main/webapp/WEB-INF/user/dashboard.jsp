@@ -16,6 +16,7 @@
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="/style/styleindex.css">
+<link rel="stylesheet" href="/style/card.css">
 </head>
 
 <body class=body>
@@ -70,9 +71,9 @@
 			<div class="col-auto">
 				<label class="visually-hidden" for="autoSizingSelect">Category</label>
 				<select class="form-select" id="autoSizingSelect" name="categoryId" >
-					<option selected>Category</option>
+>
 					<c:forEach var="category" items="${categories}">
-					<option value="${category.id}">${category.title}</option>
+					<option  value="${category.id}">${category.title}</option>
 					</c:forEach>
 				</select>
 			</div>
@@ -80,7 +81,6 @@
 			<div class="col-auto">
 				<label class="visually-hidden" for="autoSizingSelect">Location</label>
 				<form:select class="form-select" id="autoSizingSelect" path="city">
-					<option selected>Location</option>
 					<c:forEach var="city" items="${cities}">
 					<form:option path="city" value="${city}">${city.name}</form:option>
 					</c:forEach>
@@ -172,26 +172,6 @@
 	
 		
 
-	<section class="user-apply">
-		<div class="card mb-3" style="max-width: 540px;">
-			<div class="row g-0">
-				<div class="col-md-4">
-					<img src="images/career.jpg" class="img-fluid rounded-start" alt="..."/>	
-				</div>
-				<div class="col-md-8">
-				<div  class="cardbody">
-					<div class="card-body" class="cardbody">
-						<h5 class="card-title">Advance your career with job finder.</h5>
-						<p class="card-text">Create a free account, complete your profile, and get matched with your dream job.</p>
-						<button type="button" class="btn btn-outline-danger">Get Started</button>
-						<p class="card-text">
-							<small class="text-body-secondary">Get seen by employers.</small></p>
-					</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 
 
 
@@ -211,6 +191,35 @@
 	   </div>
 	</div>
 		</section>  -->
+		
+		<div class="wrapper">
+        <div class="container">
+            <div class="card border-top-yellow">
+                <img src="https://t3.ftcdn.net/jpg/06/00/92/28/360_F_600922821_wWqDd3DPAuGxAwWK1Vh3cJ4kwbDv3pKq.jpg" alt="" >
+                <h2>WordPress Website</h2>
+                <p>Providing custom, user-friendly and visually appealing websites for businesses and individuals.</p>
+                <br>
+                <div class="explore-btn">
+                <a href="#">Explore   <i class="fa fa-arrow-right"></i></a></div>
+            </div>
+            <div class="card border-top-green">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3wlpZkEcJqNNXEnucCpQtRHDxqkzcTa9sH6iZqmBGnQ&s" alt="" >
+                <h2>Custom Website</h2>
+                <p>I offer Custom coded, Pixel-Perfect, Creative and Professional Websites to drive success for your business.</p>
+                <br>
+                <div class="explore-btn">
+                <a href="#">Explore   <i class="fa fa-arrow-right"></i></a></div>
+            </div>
+            <div class="card border-top-blue">
+                <img src="https://img.freepik.com/premium-photo/male-hand-touching-service-concept_220873-7591.jpg" alt="" >
+                <h2>Fillable PDF Forms</h2>
+                <p>Simple PDFs into editable forms that can be easily filled and submitted digitally for improved efficiency.</p>
+                <br>
+                <div class="explore-btn">
+                <a href="#">Explore   <i class="fa fa-arrow-right"></i></a></div>
+            </div>
+        </div>
+    </div>
 
 
 
