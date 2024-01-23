@@ -16,6 +16,7 @@ width: auto;
 .main-form{
  text-align: center;
  background: #548CA8;
+background: url('https://img.freepik.com/premium-photo/job-search-icons-blue-background_218381-8576.jpg'); /* Replace 'your-background-image.jpg' with your actual image file */
  padding: 5%;
  display: grid;
  justify-content: space-around;
@@ -81,6 +82,126 @@ background-color:rgb(65, 107, 120);
 padding-top: 1%;
 	
 }
+
+#login{
+	border-radius: 5px;
+	color: #EEEEEE;
+	box-shadow: 4px 4px 14px #548CA8;
+	background-color: #334257;
+}
+.main-form button {
+	border-radius: 5px;
+	color: #EEEEEE;
+	box-shadow: 4px 4px 14px #548CA8;
+	background-color: #334257;
+}
+
+.nested-card{
+	margin-right: auto; 
+    box-shadow: 0 15px 25px #EEEEEE; 
+    height: 300px; 
+    border-radius: 10px; 
+    backdrop-filter: blur(14px); 
+    background-color: rgba(255, 255, 255, 0.2); 
+    padding: 10px; 
+    text-align: center;
+}
+.nested-card button {
+	background-color: #334257;
+	color: #EEEEEE;
+}:root {
+  --black: #334257;
+  --white: #EEEEEE;
+  --green: #548CA8;
+}input[type="radio"] {
+  position: absolute;
+  left: -9999px;
+}
+.filters {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.filters * {
+  display: inline-block;
+}
+
+.filters label {
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.25rem;
+  border-radius: 2rem;
+  min-width: 50px;
+  line-height: normal;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.filters label:hover {
+  background: var(--green);
+  color: var(--white);
+}
+[value="All"]:checked ~ .filters [for="All"],
+[value="backend"]:checked ~ .filters [for="backend"],
+[value="frontend"]:checked ~ .filters [for="frontend"],
+[value="jQuery"]:checked ~ .filters [for="jQuery"],
+[value="WordPress"]:checked ~ .filters [for="WordPress"],
+
+[value="fullPage.js"]:checked ~ .filters [for="fullPage.js"] {
+  background: var(--green);
+  color: var(--white);
+}
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .filter-card {
+    width: calc(25% - 20px); /* 25% width for each card with some margin */
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .filter-card:hover {
+    transform: scale(1.05);
+  }
+
+  .filter-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  h4 {
+    margin: 0;
+    color: #333;
+  }
+
+  p {
+    margin: 5px 0;
+    color: #777;
+  }
+  .tag {
+	  background-color: darkseagreen;
+	  color: ghostwhite;
+	  font-size: small;
+	  box-shadow: 2px 2px 8px #548CA8;
+	  border-radius: 4px;
+	  padding: 3px;
+  }
+  .EmptyMessage
+  {
+	  font-size: xx-large;
+	  color: #334257;
+	  margin: 0 auto;
+  }
 
 
 

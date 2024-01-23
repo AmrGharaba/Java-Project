@@ -13,5 +13,7 @@ public interface VacancyRepository extends CrudRepository<Vacancy, Long> {
 	List<Vacancy> findByCityAndWorkCategoriesAndDescriptionContains(City city, WorkCategory category, String search);
 	List<Vacancy> findByCity(City city);
 	List<Vacancy> findByWorkCategories(WorkCategory category);
+	List<Vacancy> findByWorkCategoriesTitle(String categoryTitle);
+	List<Vacancy> findAll();
 
 }
