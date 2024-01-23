@@ -166,20 +166,20 @@
 					<!-- Grid column -->
 
 					<!-- Grid column -->
-					<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+					<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 						<!-- Links -->
-						<h6 class="text-uppercase fw-bold mb-4 text-light">Useful links</h6>
+						<h6 class="text-uppercase text-light fw-bold mb-4">Site Map</h6>
 						<p>
-							<a href="#!" class="text-light">FaceBook</a>
+							<a href="#!" class="text-light">Home</a>
 						</p>
 						<p>
-							<a href="#!" class="text-light">LinkedIn.com</a>
+							<a href="#!" class="text-light">Log In</a>
 						</p>
 						<p>
-							<a href="#!" class="text-light">GitHub</a>
+							<a href="#!" class="text-light">About Us</a>
 						</p>
 						<p>
-							<a href="#!" class="text-light">Help</a>
+							<a href="#!" class="text-light">Contact Us</a>
 						</p>
 					</div>
 					<!-- Grid column -->

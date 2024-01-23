@@ -252,7 +252,10 @@
 					<!-- Grid column -->
 					<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 						<!-- Links -->
-						<h6 class="text-uppercase text-light fw-bold mb-4">Home</h6>
+						<h6 class="text-uppercase text-light fw-bold mb-4">Site Map</h6>
+						<p>
+							<a href="#!" class="text-light">Home</a>
+						</p>
 						<p>
 							<a href="#!" class="text-light">Log In</a>
 						</p>
