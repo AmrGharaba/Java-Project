@@ -212,7 +212,7 @@
 		<div class="text-center p-4"
 			style="background-color: rgba(0, 0, 0, 0.05);">
 
-			<a class="text-reset fw-bold" href="https://mdbootstrap.com/">www.jobfinder.ps</a>
+			<a class="text-reset fw-bold" href="#">www.jobfinder.ps</a>
 		</div>
 		<!-- Copyright -->
 	</footer>

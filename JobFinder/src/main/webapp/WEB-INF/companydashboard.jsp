@@ -44,7 +44,8 @@
 					</div>
 
 					<div>
-						<a id="login" href="/login" class="btn"> Login</a>
+					  <a id="login" href="/login" class="btn"> Login</a>
+					  <a id="login" href="/logout" class="btn"> LogOut</a>
 					</div>
 				</div>
 			</nav>
@@ -157,14 +158,14 @@
 							Toggle Applicants</button>
 					</p>
 					<div class="collapse" id="collapse${vacancy.id}">
-						<div class="card card-body">
-							<table>
+						<div>
+							<table class="table table-striped border">
+								<c:forEach var="user" items="${vacancy.users}">
 								<tr>
-									<c:forEach var="user" items="${vacancy.users}">
-									<td>${user.firstName}</td>
-									</c:forEach>
+									<td>${user.id}</td>
+									<td>${user.firstName} ${user.lastName}</td>	
 								</tr>
-							
+								</c:forEach>
 							</table>
 							</div>
 					</div>
@@ -304,7 +305,7 @@
 		<div class="text-center p-4"
 			style="background-color: rgba(0, 0, 0, 0.05);">
 
-			<a class="text-reset fw-bold" href="https://mdbootstrap.com/">www.jobfinder.ps</a>
+			<a class="text-reset fw-bold" href="#">www.jobfinder.ps</a>
 		</div>
 		<!-- Copyright -->
 	</footer>
