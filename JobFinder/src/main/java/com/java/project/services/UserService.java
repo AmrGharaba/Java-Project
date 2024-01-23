@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 
 import com.java.project.models.LoginUser;
 import com.java.project.models.User;
+import com.java.project.models.Vacancy;
 import com.java.project.repositories.UserRepository;
 
 @Service
@@ -96,5 +97,10 @@ public class UserService {
 //    public void addUserToVacancy(User user, Vacancy vacancy) {
 //    	Vacancy
 //    }
+    
+    public void addJob(Vacancy vacancy, User user) {
+    	user.getVacancies().add(vacancy);
+    	userRepository.save(user);
+    }
 
 }

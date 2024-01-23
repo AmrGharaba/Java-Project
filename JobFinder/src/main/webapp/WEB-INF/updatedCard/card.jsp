@@ -33,9 +33,13 @@ display: flex;
                     </c:forEach>
                 </div>
                 <p>${vacancy.description}</p>
-                <a class="text-center mx-auto btn" href="#">Apply</a>
-            </div>
-            
+                <c:if test="${!user.getVacancies().contains(vacancy)}">
+                <a class="text-center mx-auto btn" href="/apply/${vacancy.id}">Apply</a></c:if>
+                <c:if test="${user.getVacancies().contains(vacancy)}">
+                <a class="text-center mx-auto btn" href="">applied</a>     
+                </c:if>  
+                </div>
+                    
         </div>
     </c:forEach>
 </div>

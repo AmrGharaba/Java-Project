@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -77,7 +78,7 @@ public class MainController {
 			// TO-DO Later: Store their ID from the DB in session,
 			// in other words, log them in.
 
-			return "redirect:/login";
+			return "redirect:/";
 		}
 
 	}
@@ -100,7 +101,7 @@ public class MainController {
 				return "redirect:/admin/dashboard";
 			}
 
-			return "redirect:/user/dashBoard.jsp";
+			return "redirect:/";
 
 		}
 	}
@@ -169,9 +170,14 @@ public class MainController {
 	public String index(HttpSession session, Model model) {
 		List<City> cities = cityService.listCities();
 		List<WorkCategory> categories = workCategoryService.listWorkCategories();
+	
+		
+		User user = userService.find_User((Long)session.getAttribute("loginId"));
+		
 		model.addAttribute("cities", cities);
 		model.addAttribute("categories", categories);
 		model.addAttribute("vacancyFilter", new Vacancy());
+		model.addAttribute("user", user);
 		return "user/dashboard.jsp";
 	}
 //////////user dashboard
@@ -298,18 +304,22 @@ public class MainController {
 	}
 	
 	@GetMapping("/fetchvacancy")
-	public String getVacancyTofiller(@RequestParam("category") String category,Model model) {
+	public String getVacancyTofiller(@RequestParam("category") String category,Model model,HttpSession session) {
 		System.out.println("Helllo"+ category);
+		Long userId = (Long) session.getAttribute("loginId");
+		User user = userService.find_User(userId);
 		if (category.equals("All")) {
 			List<Vacancy> vacancy = vacancyService.listVacancy();
 			model.addAttribute("vacancies",vacancy);
+			model.addAttribute("user", user);
 			return "updatedCard/card.jsp";
 		}
 		else {
 			System.out.println("***********************************");
 			List<Vacancy> vacancy = vacancyService.filterdVacancy(category);
 			model.addAttribute("vacancies",vacancy);
-			System.out.println(vacancy);	
+			System.out.println(vacancy);
+			model.addAttribute("user", user);
 			return "updatedCard/card.jsp";
 		}
 //		System.out.println("***********************************");
@@ -319,6 +329,17 @@ public class MainController {
 	
 	}
 	
+	@GetMapping("/apply/{id}")
+	public String applyJob(@PathVariable("id") Long id, HttpSession session) {
+		Long userId = (Long) session.getAttribute("loginId");
+		User user = userService.find_User(userId);
+		Vacancy vacancy = vacancyService.findVacancy(id);
+		System.out.println(vacancy.getName());
+		System.out.println(user.getFirstName());
+		userService.addJob(vacancy, user);
+		System.out.println(user.getVacancies().contains(vacancy));
+		return "redirect:/";
+	}
 	
 
 }
