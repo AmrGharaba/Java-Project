@@ -60,9 +60,14 @@ public class User {
     @Max(value = 1)
     private int accessLevel;
     
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "vacancy_id")
-	private Vacancy vacancy;
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(
+	        name = "vacancy_users", 
+	        joinColumns = @JoinColumn(name = "user_id"), 
+	        inverseJoinColumns = @JoinColumn(name = "vacancy_id")
+			)
+	private List<Vacancy> vacancies;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "city_id")
@@ -154,13 +159,17 @@ public class User {
 		this.accessLevel = accessLevel;
 	}
 
-	public Vacancy getVacancy() {
-		return vacancy;
+
+
+	public List<Vacancy> getVacancies() {
+		return vacancies;
 	}
 
-	public void setVacancy(Vacancy vacancy) {
-		this.vacancy = vacancy;
+
+	public void setVacancies(List<Vacancy> vacancies) {
+		this.vacancies = vacancies;
 	}
+
 
 	public City getCity() {
 		return city;

@@ -20,38 +20,35 @@
 
 <body class="body">
 	<header>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">JobFinder</a>
+		<div class="container">
+			<nav class="navbar navbar-expand-lg bg-body-tertiary">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="/">JobFinder</a>
 
-                <!-- Button for mobile navigation toggle -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+					<!-- Button for mobile navigation toggle -->
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarNav" aria-controls="navbarNav"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
 
-                <!-- Navigation links -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contactus">Contact Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/aboutus">About Us</a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div>
-					  <a id="login" href="/login" class="btn"> Login</a>
-					</div>				                	
-            </div>
-        </nav>
-	    </div>
+					<!-- Navigation links -->
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+							<li class="nav-item"><a class="nav-link" href="/contactus">Contact
+									Us</a></li>
+							<li class="nav-item"><a class="nav-link" href="/aboutus">About
+									Us</a></li>
+						</ul>
+					</div>
+
+					<div>
+						<a id="login" href="/login" class="btn"> Login</a>
+					</div>
+				</div>
+			</nav>
+		</div>
 	</header>
 
 
@@ -65,16 +62,11 @@
 
 
 		<section class="main-form">
-		<div class="nested-card p-4">
-			<h1>Wellcome ${company.name}</h1>
-			<h3>add your Vacancies here!</h3>
+			<div class="nested-card p-4">
+				<h1>Wellcome ${company.name}</h1>
+				<h3>add your Vacancies here!</h3>
 			</div>
 		</section>
-
-
-
-
-
 
 		<form:form class="mx-auto text-center w-50 mb-5 mt-5"
 			action="/submitVacancy" method="post" modelAttribute="newVacancy">
@@ -138,44 +130,87 @@
 		</section>
 
 
-		<section class="section-job w-75 mx-auto text-center mb-4">
-			<h3 class="job-font">History of Vacancies</h3>
-			<div class="row">
+		
+	<div class="container-company d-flex mx-auto">
+		<c:forEach var="vacancy" items="${vacancies}">
+			<div class="col-auto">
+			<div class="card-company">
+				<div class="card-header">
+					<img
+						src="https://previews.123rf.com/images/arcady31/arcady311508/arcady31150800034/44235258-job-vacancy-rubber-stamp.jpg"
+						alt="rover" />
+				</div>
+				<div class="card-body">
+					<div class="d-flex">
+						<c:forEach var="cat" items="${vacancy.workCategories}">
+							<span class="tag tag-teal pr-1">${cat.title}</span>
+						</c:forEach>
+					</div>
+					<h4>${vacancy.name}</h4>
+					<p>${vacancy.description}</p>
 
-			<c:forEach var="vacancy" items="${vacancies}">
-				<div class="col-sm-4 p-2">
-					<div class="card">
-						<div class="card-body">
-							<h5 class="card-title">${vacancy.name}</h5>
-							<p class="card-text">${vacancy.description}</p>
-							<p>
-								<button class="btn btn-primary" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapse${vacancy.id}"
-									aria-expanded="false" aria-controls="collapse${vacancy.id}">
-									Toggle Applicants</button>
-							</p>
-							<div class="collapse" id="collapse${vacancy.id}">
-								<div class="card card-body">Some placeholder content for
-									the collapse component. This panel is hidden by default but
-									revealed when the user activates the relevant trigger.</div>
+
+					<p>
+						<button class="btn btn-primary" type="button"
+							data-bs-toggle="collapse" data-bs-target="#collapse${vacancy.id}"
+							aria-expanded="false" aria-controls="collapse${vacancy.id}">
+							Toggle Applicants</button>
+					</p>
+					<div class="collapse" id="collapse${vacancy.id}">
+						<div class="card card-body">
+							<table>
+								<tr>
+									<c:forEach var="user" items="${vacancy.users}">
+									<td>${user.firstName}</td>
+									</c:forEach>
+								</tr>
+							
+							</table>
 							</div>
-						</div>
 					</div>
 				</div>
-				</c:forEach>
-
-				
 			</div>
-		</section>
-
+			</div>
+			
+		</c:forEach>
+	</div>
+		
 	</main>
 
 
 
 
 
+<%-- 
+	<section class="section-job w-75 mx-auto text-center mb-4">
+			<h3 class="job-font">History of Vacancies</h3>
+			<div class="row">
+				<c:forEach var="vacancy" items="${vacancies}">
+					<div class="col-sm-4 p-2">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">${vacancy.name}</h5>
+								<p class="card-text">${vacancy.description}</p>
+								<p>
+									<button class="btn btn-primary" type="button"
+										data-bs-toggle="collapse"
+										data-bs-target="#collapse${vacancy.id}" aria-expanded="false"
+										aria-controls="collapse${vacancy.id}">Toggle
+										Applicants</button>
+								</p>
+								<div class="collapse" id="collapse${vacancy.id}">
+									<div class="card card-body">Some placeholder content for
+										the collapse component. This panel is hidden by default but
+										revealed when the user activates the relevant trigger.</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
 
 
+			</div>
+		</section> --%>
 
 
 
@@ -185,7 +220,7 @@
 	<footer
 		class="text-center text-lg-start bg-body-tertiary footer-general">
 		<!-- Section: Social media -->
-		
+
 		<!-- Section: Social media -->
 
 		<!-- Section: Links  -->
@@ -197,9 +232,11 @@
 					<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 						<!-- Content -->
 						<h6 class="text-uppercase fw-bold mb-4 text-light">
-							<i class="fas fa-gem me-3"></i>JobFinder</h6>
-						<p class="text-light">We provide a user-friendly interface with advanced search features, 
-						empowering users to explore a diverse range of job listings.</p>
+							<i class="fas fa-gem me-3"></i>JobFinder
+						</h6>
+						<p class="text-light">We provide a user-friendly interface
+							with advanced search features, empowering users to explore a
+							diverse range of job listings.</p>
 					</div>
 					<!-- Grid column -->
 
@@ -222,7 +259,8 @@
 					<!-- Grid column -->
 					<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
 						<!-- Links -->
-						<h6 class="text-uppercase fw-bold mb-4 text-light">Useful links</h6>
+						<h6 class="text-uppercase fw-bold mb-4 text-light">Useful
+							links</h6>
 						<p>
 							<a href="#!" class="text-light">FaceBook</a>
 						</p>
