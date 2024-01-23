@@ -171,8 +171,10 @@ public class MainController {
 		List<City> cities = cityService.listCities();
 		List<WorkCategory> categories = workCategoryService.listWorkCategories();
 		List<Vacancy> vacancies = vacancyService.listVacancy();
-	
 		
+		if(session.getAttribute("loginId") == null) {
+			return "redirect:/login";
+		}
 		User user = userService.find_User((Long)session.getAttribute("loginId"));
 		
 		model.addAttribute("cities", cities);
@@ -299,8 +301,9 @@ public class MainController {
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:/";
+		return "redirect:/login";
 	}
+	
 	@GetMapping("/aboutus")
 	public String aboutus() {
 		return "about.jsp";

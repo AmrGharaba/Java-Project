@@ -49,6 +49,7 @@
                 
                 	<div>
 					  <a id="login" href="/login" class="btn"> Login</a>
+					  <a id="login" href="/logout" class="btn"> LogOut</a>
 					</div>				                	
             </div>
         </nav>
@@ -192,27 +193,28 @@
 	</div>
 		</section>  -->
 		
+			
 		<div class="wrapper">
         <div class="container">
-            <div class="card border-top-yellow">
-                <img src="https://t3.ftcdn.net/jpg/06/00/92/28/360_F_600922821_wWqDd3DPAuGxAwWK1Vh3cJ4kwbDv3pKq.jpg" alt="" >
-                <h2>WordPress Website</h2>
+            <div class="card border-top-blue">
+                <img id="cardimage" src="https://www.delta.ps/writable/uploads/sections/1679779800_c1c7fa5c53bc25a4c5bf.jpeg" alt="" >
+                <h2>Our Mission</h2>
                 <p>Providing custom, user-friendly and visually appealing websites for businesses and individuals.</p>
                 <br>
                 <div class="explore-btn">
                 <a href="#">Explore   <i class="fa fa-arrow-right"></i></a></div>
             </div>
-            <div class="card border-top-green">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3wlpZkEcJqNNXEnucCpQtRHDxqkzcTa9sH6iZqmBGnQ&s" alt="" >
-                <h2>Custom Website</h2>
+            <div class="card border-top-blue">
+                <img id="cardimage" src="https://www.delta.ps/writable/uploads/articles/1601461218_14b639d4a93a800d1f7b.jpg" alt="" >
+                <h2>Future Plans</h2>
                 <p>I offer Custom coded, Pixel-Perfect, Creative and Professional Websites to drive success for your business.</p>
                 <br>
                 <div class="explore-btn">
                 <a href="#">Explore   <i class="fa fa-arrow-right"></i></a></div>
             </div>
             <div class="card border-top-blue">
-                <img src="https://img.freepik.com/premium-photo/male-hand-touching-service-concept_220873-7591.jpg" alt="" >
-                <h2>Fillable PDF Forms</h2>
+                <img id="cardimage" src="https://www.delta.ps/writable/uploads/articles/1607937353_cb15a5e9aacfbde4f50d.jpg	" alt="" >
+                <h2>Our Partners</h2>
                 <p>Simple PDFs into editable forms that can be easily filled and submitted digitally for improved efficiency.</p>
                 <br>
                 <div class="explore-btn">
@@ -220,7 +222,6 @@
             </div>
         </div>
     </div>
-
 
 
 
@@ -311,7 +312,7 @@
 		<div class="text-center p-4"
 			style="background-color: rgba(0, 0, 0, 0.05);">
 
-			<a class="text-reset fw-bold" href="https://mdbootstrap.com/">www.jobfinder.ps</a>
+			<a class="text-reset fw-bold" href="#">www.jobfinder.ps</a>
 		</div>
 		<!-- Copyright -->
 	</footer>

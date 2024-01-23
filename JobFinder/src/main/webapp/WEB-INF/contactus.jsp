@@ -46,10 +46,10 @@
                         </li>
                     </ul>
                 </div>
-                
-                <div>
+               		<div>
 					  <a id="login" href="/login" class="btn"> Login</a>
-					</div>			                	
+					  <a id="login" href="/logout" class="btn"> LogOut</a>
+					</div>		                	
             </div>
         </nav>
 	    </div>
@@ -83,13 +83,13 @@
 	        <!-- Email Section -->
 	        <div class="col-md-6">
 	            <h5>Email</h5>
-	            <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+	            <p>Email: <a href="mailto:info@example.com">info@jobfinder.ps</a></p>
 	        </div>
 	
 	        <!-- Phone Section -->
 	        <div class="col-md-6">
 	            <h5>Phone</h5>
-	            <p>Phone: +1 (123) 456-7890</p>
+	            <p>Phone: + (09) 456-1232</p>
 	        </div>
 	    </div>
 	
@@ -97,13 +97,13 @@
 	        <!-- Location Section -->
 	        <div class="col-md-6">
 	            <h5>Location</h5>
-	            <p>123 Street, City, Country</p>
+	            <p>1032 Alquds, Ramallah, palestine</p>
 	        </div>
 	
 	        <!-- Fax Section -->
 	        <div class="col-md-6">
 	            <h5>Fax</h5>
-	            <p>Fax: +1 (123) 456-7891</p>
+	            <p>Fax: + (09) 299-3338</p>
 	        </div>
 	    </div>
 	
@@ -111,7 +111,7 @@
 	        <!-- Google Map Section (Replace with your actual Google Map embed code) -->
 	        <div class="col-md-12">
 	            <h5>Google Map</h5>
-	            <img src="https://via.placeholder.com/1200x300" alt="Google Map Placeholder" class="img-fluid">
+	            <iframe class="border border-dark" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13547.686865052678!2d35.202662399999994!3d31.9087243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1706028607081!5m2!1sen!2s" width="1200" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 	        </div>
 	    </div>
 	</div>
@@ -211,7 +211,7 @@
 		<div class="text-center p-4"
 			style="background-color: rgba(0, 0, 0, 0.05);">
 
-			<a class="text-reset fw-bold" href="https://mdbootstrap.com/">www.jobfinder.ps</a>
+			<a class="text-reset fw-bold" href="#">www.jobfinder.ps</a>
 		</div>
 		<!-- Copyright -->
 	</footer>
