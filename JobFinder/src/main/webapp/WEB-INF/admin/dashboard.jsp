@@ -48,7 +48,7 @@
 	<!-- Main Content -->
 	<main class="container mt-4 mb-4" >
 	<section class="section-border m-1 main-form">
-		<h3>Add  City</h3>
+		<h3>Control Panel</h3>
 		</section>
 		<!-- City card -->
 		
@@ -78,8 +78,8 @@
 						<c:if test="${!cities.isEmpty()}">
 							<c:forEach var="city" items="${cities}">
 								<li class="list-group-item">
-									<div class="d-flex justify-content-between align-items-center">${city.name}<button
-											type="button" class="btn btn-sm btn-danger">Delete</button>
+									<div class="d-flex justify-content-around align-items-center">${city.name}
+									<button type="button" class="btn btn-sm btn-danger ml-2">Delete</button>
 									</div>
 								</li>
 							</c:forEach>
@@ -115,7 +115,7 @@
 							<li class="list-group-item">
 								<div class="d-flex justify-content-between align-items-center">
 									${category.title}
-									<button type="button" class="btn btn-sm btn-danger">Delete</button>
+									<button type="button" class="btn btn-sm btn-danger ml-2">Delete</button>
 								</div>
 							</li>
 							</c:forEach>
@@ -125,9 +125,35 @@
 					</ul>
 				</div>
 			</div>
+			<!-- end of Work Category card -->
+		  	<!-- Companies card -->
+			<div class="col-md-3">
+				<div class="card">
+					<div class=" card-body">
+						<h5 class="card-title">Companies</h5>
+
+					</div>
+					<ul class="list-group list-group-flush">
+						<c:if test="${!companies.isEmpty()}">
+							<c:forEach var="company" items="${companies}">
+								<li class="list-group-item">
+									<div class="d-flex justify-content-between align-items-center">
+										<h6>${company.name}</h6>
+										<div class="d-flex flex-row">
+											<button type="button" class="btn btn-sm btn-warning ml-2">Remove</button>
+										</div>
+									</div>
+								</li>
+							</c:forEach>
+						</c:if>
+
+					</ul>
+				</div>
+			</div>
+			<!-- end of Companies card -->
 						
 			</div>
-			<!-- end of Work Category card -->
+			
 			
 			
 			<section class="section-border m-1 main-form">
@@ -147,49 +173,14 @@
 			  <tr>
 			    <td><a href="">${user.firstName} ${user.lastName}</a></td>
 			    <td><button type="button" class="btn btn-sm btn-danger mr-2">Delete</button></td>
-			    <td><button type="button" class="btn btn-sm btn-primary">Make Admin</button></td>
+			    <td><button type="button" class="btn btn-sm btn-warning">Make Admin</button></td>
 			  </tr>
 			 </c:forEach>
 			</table>
 	        </c:if>
 		</div>       
 			<!-- end of users card -->
-			
-			
-			
-			
-			
-			<section class="section-border m-1 main-form">
-		   <h3>Companies</h3>
-		  </section>
-		  
-		  	<!-- Companies card -->
-			<div class="col-md-3">
-				<div class="card">
-					<div class=" card-body">
-						<h5 class="card-title">Companies</h5>
 
-					</div>
-					<ul class="list-group list-group-flush">
-						<c:if test="${!companies.isEmpty()}">
-							<c:forEach var="company" items="${companies}">
-								<li class="list-group-item">
-									<div class="d-flex justify-content-between align-items-center">
-										<a href="">${company.name}</a>
-										<div class="d-flex flex-row">
-											<button type="button" class="btn btn-sm btn-danger mr-2">Delete</button>
-										</div>
-									</div>
-								</li>
-							</c:forEach>
-						</c:if>
-
-					</ul>
-				</div>
-			</div>
-			<!-- end of Companies card -->
-			
-			
 		     
 	</main>
 

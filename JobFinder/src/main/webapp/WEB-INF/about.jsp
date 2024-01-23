@@ -40,16 +40,14 @@
                             <a class="nav-link" href="/contactus">Contact Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/login">Log In</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/vacancy">Vacancies</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="/aboutus">About Us</a>
                         </li>
                     </ul>
                 </div>
+                
+               <div>
+					  <a id="login" href="/login" class="btn"> Login</a>
+					</div>				                	
             </div>
         </nav>
 	    </div>
@@ -64,8 +62,10 @@
 	
 	
 	<section class="main-form">
+	<div class="nested-card p-4">
 			<h1>Wellcome</h1>
 			<h3>About JobFinder Palestine</h3>
+	</div>
 		</section>
 	
 	  <section class="container my-5">
@@ -82,7 +82,7 @@
         </div>
 
         <div class="text-center mt-4">
-            <a href="#" class="btn btn-primary">Explore Our Vacancies</a>
+            <a href="#" id="login" class="btn">Explore Our Vacancies</a>
         </div>
     </section>
     
@@ -103,37 +103,32 @@
 		<!-- Section: Social media -->
 
 		<!-- Section: Links  -->
-		<section class="">
+		<section>
 			<div class="container text-center text-md-start mt-5">
 				<!-- Grid row -->
 				<div class="row mt-3">
 					<!-- Grid column -->
 					<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 						<!-- Content -->
-						<h6 class="text-uppercase fw-bold mb-4">
-							<i class="fas fa-gem me-3"></i>Company name
-						</h6>
-						<p>Here you can use rows and columns to organize your footer
-							content. Lorem ipsum dolor sit amet, consectetur adipisicing
-							elit.</p>
+						<h6 class="text-uppercase fw-bold mb-4 text-light">
+							<i class="fas fa-gem me-3"></i>JobFinder</h6>
+						<p class="text-light">We provide a user-friendly interface with advanced search features, 
+						empowering users to explore a diverse range of job listings.</p>
 					</div>
 					<!-- Grid column -->
 
 					<!-- Grid column -->
 					<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 						<!-- Links -->
-						<h6 class="text-uppercase fw-bold mb-4">Products</h6>
+						<h6 class="text-uppercase text-light fw-bold mb-4">Home</h6>
 						<p>
-							<a href="#!" class="text-reset">Angular</a>
+							<a href="#!" class="text-light">Log In</a>
 						</p>
 						<p>
-							<a href="#!" class="text-reset">React</a>
+							<a href="#!" class="text-light">About Us</a>
 						</p>
 						<p>
-							<a href="#!" class="text-reset">Vue</a>
-						</p>
-						<p>
-							<a href="#!" class="text-reset">Laravel</a>
+							<a href="#!" class="text-light">Contact Us</a>
 						</p>
 					</div>
 					<!-- Grid column -->
@@ -141,18 +136,18 @@
 					<!-- Grid column -->
 					<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
 						<!-- Links -->
-						<h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
+						<h6 class="text-uppercase fw-bold mb-4 text-light">Useful links</h6>
 						<p>
-							<a href="#!" class="text-reset">Pricing</a>
+							<a href="#!" class="text-light">FaceBook</a>
 						</p>
 						<p>
-							<a href="#!" class="text-reset">Settings</a>
+							<a href="#!" class="text-light">LinkedIn.com</a>
 						</p>
 						<p>
-							<a href="#!" class="text-reset">Orders</a>
+							<a href="#!" class="text-light">GitHub</a>
 						</p>
 						<p>
-							<a href="#!" class="text-reset">Help</a>
+							<a href="#!" class="text-light">Help</a>
 						</p>
 					</div>
 					<!-- Grid column -->
@@ -160,18 +155,18 @@
 					<!-- Grid column -->
 					<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 						<!-- Links -->
-						<h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-						<p>
-							<i class="fas fa-home me-3"></i> New York, NY 10012, US
+						<h6 class="text-uppercase fw-bold mb-4 text-light">Contact</h6>
+						<p class="text-light">
+							<i class="fas fa-home me-3"></i> Ramallah, WB 10012, PS
 						</p>
-						<p>
-							<i class="fas fa-envelope me-3"></i> info@example.com
+						<p class="text-light">
+							<i class="fas fa-envelope me-3"></i> info@jopfinder.ps
 						</p>
-						<p>
-							<i class="fas fa-phone me-3"></i> + 01 234 567 88
+						<p class="text-light">
+							<i class="fas fa-phone me-3"></i> + 09 299 633 93
 						</p>
-						<p>
-							<i class="fas fa-print me-3"></i> + 01 234 567 89
+						<p class="text-light">
+							<i class="fas fa-print me-3"></i> + 09 299 633 90
 						</p>
 					</div>
 					<!-- Grid column -->
@@ -185,7 +180,7 @@
 		<div class="text-center p-4"
 			style="background-color: rgba(0, 0, 0, 0.05);">
 
-			<a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+			<a class="text-reset fw-bold" href="https://mdbootstrap.com/">www.jobfinder.ps</a>
 		</div>
 		<!-- Copyright -->
 	</footer>
