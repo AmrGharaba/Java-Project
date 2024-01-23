@@ -60,6 +60,7 @@
 
 	<!--  form -->
 	<section class="main-form">
+	<div class="nested-card">
 		<h1>FIND THE JOB THAT FITS YOUR LIFE</h1>
 		<h3>We offer thousands of jobs vacancies right now</h3>
 
@@ -92,14 +93,89 @@
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</div>
 		</form:form>
+		</div>
 	</section>
 	<!--  end form -->
+	
+		<div class="container">
+    <input type="radio" id="All" name="categories" value="All" checked>
+    <input type="radio" id="frontend" name="categories" value="frontend">
+    <input type="radio" id="backend" name="categories" value="backend">
+    <input type="radio" id="ui/ux" name="categories" value="ui/ux">
+    <input type="radio" id="data scientist" name="categories" value="data scientist">
+    <input type="radio" id="database" name="categories" value="database">
 
-	<section class="section-job w-75 mx-auto text-center">
+    <ol class="filters">
+      <li>
+        <label for="All">All</label>
+      </li>
+      <li>
+        <label for="frontend">Frontend</label>
+      </li>
+      <li>
+        <label for="backend">Backend</label>
+      </li>
+      <li>
+        <label for="ui/ux">UI/UX</label>
+      </li>
+      <li>
+        <label for="data scientist">Data Scientist</label>
+      </li>
+      <li>
+        <label for="database">Database</label>
+      </li>
+    </ol>
+  </div>
+	
+	
+	<div class="cards" id="vacancies-container">
+    <c:forEach var="vacancy" items="${vacancies}">
+        <div class="filter-card">
+            <img src="https://i.pngimg.me/image_by_url?url=https://image.freepik.com/free-vector/job-vacancy-background-with-chair_23-2147868094.jpg" alt="Vacancy Image">
+            <div class="container">
+                <h4><b>${vacancy.name}</b></h4>
+                <div class="categories">
+                    <c:forEach var="category" items="${vacancy.workCategories}">
+                        <span class="tag">${category.title}</span>
+                    </c:forEach>
+                </div>
+                <p>${vacancy.description}</p>
+            </div>
+        </div>
+    </c:forEach>
+</div>
+
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Your AJAX script -->
+<script>
+    $(document).ready(function() {
+        $('input[name="categories"]').change(function() {
+            const selectedCategory = $('input[name="categories"]:checked').val();
+
+            $.ajax({
+                type: 'GET',
+                url: '/fetchvacancy?category=' + selectedCategory,
+                success: function(data) {
+                    // Replace the existing content inside the #vacancies-container with the newly received data
+                    $('#vacancies-container').html(data);
+                },
+                error: function(error) {
+                    console.error('Error fetching data:', error);
+                }
+            });
+        });
+    });
+</script>
+
+
+
+	<!-- <section class="section-job w-75 mx-auto text-center">
 		<h3 class="job-font">Find the right job Sectors</h3>
 		<div class="row">
 		
-			<!--  add for loop herererere -->
+			 add for loop herererere
 	  <div class="col-sm-4 p-2">
 	    <div class="card">
 	      <div class="card-body">
@@ -109,39 +185,14 @@
 	      </div>
 	    </div>
 	   </div>
-	    <div class="col-sm-4 p-2">
-	    <div class="card">
-	      <div class="card-body">
-	        <h5 class="card-title">Special title treatment</h5>
-	        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-	        <a href="#" class="btn btn-primary">Go somewhere</a>
-	      </div>
-	    </div>
-	   </div>
-	    <div class="col-sm-4 p-2">
-	    <div class="card">
-	      <div class="card-body">
-	        <h5 class="card-title">Special title treatment</h5>
-	        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-	        <a href="#" class="btn btn-primary">Go somewhere</a>
-	      </div>
-	    </div>
-	   </div>
-	    <div class="col-sm-4 p-2">
-	    <div class="card">
-	      <div class="card-body">
-	        <h5 class="card-title">Special title treatment</h5>
-	        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-	        <a href="#" class="btn btn-primary">Go somewhere</a>
-	      </div>
-	    </div>
-	   </div>
+	   
 	  
-	  <!--  end foor loop -->
+	  
+	   end foor loop
 	 
 	  
 	</div>
-		</section>
+		</section> -->
 		<!--  End Card Section -->
 		
 

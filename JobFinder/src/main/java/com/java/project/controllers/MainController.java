@@ -1,6 +1,5 @@
 package com.java.project.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -296,6 +295,28 @@ public class MainController {
 	@GetMapping("/aboutus")
 	public String aboutus() {
 		return "about.jsp";
+	}
+	
+	@GetMapping("/fetchvacancy")
+	public String getVacancyTofiller(@RequestParam("category") String category,Model model) {
+		System.out.println("Helllo"+ category);
+		if (category.equals("All")) {
+			List<Vacancy> vacancy = vacancyService.listVacancy();
+			model.addAttribute("vacancies",vacancy);
+			return "updatedCard/card.jsp";
+		}
+		else {
+			System.out.println("***********************************");
+			List<Vacancy> vacancy = vacancyService.filterdVacancy(category);
+			model.addAttribute("vacancies",vacancy);
+			System.out.println(vacancy);	
+			return "updatedCard/card.jsp";
+		}
+//		System.out.println("***********************************");
+//		List<Vacancy> vacancy = vacancyService.filterdVacancy(category);
+//		model.addAttribute("vacancies",vacancy);
+//		System.out.println(vacancy);		
+	
 	}
 	
 	

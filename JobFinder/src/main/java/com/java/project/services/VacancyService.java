@@ -29,6 +29,14 @@ public class VacancyService {
 	public void saveVacancy(Vacancy vacancy) {
 		vacancyRepository.save(vacancy);
 	}
+	
+	 public List<Vacancy> listVacancy(){
+	    	return vacancyRepository.findAll();
+	    }
+	 
+	 public  List<Vacancy> filterdVacancy(String categoryTitle) {
+		return vacancyRepository.findByWorkCategoriesTitle(categoryTitle);
+	}
 
 
 }
