@@ -170,6 +170,7 @@ public class MainController {
 	public String index(HttpSession session, Model model) {
 		List<City> cities = cityService.listCities();
 		List<WorkCategory> categories = workCategoryService.listWorkCategories();
+		List<Vacancy> vacancies = vacancyService.listVacancy();
 	
 		
 		User user = userService.find_User((Long)session.getAttribute("loginId"));
@@ -178,6 +179,7 @@ public class MainController {
 		model.addAttribute("categories", categories);
 		model.addAttribute("vacancyFilter", new Vacancy());
 		model.addAttribute("user", user);
+		model.addAttribute("vacancies", vacancies);
 		return "user/dashboard.jsp";
 	}
 //////////user dashboard
@@ -187,6 +189,7 @@ public class MainController {
 	public String vacancyFilter(@ModelAttribute("vacancyFilter") Vacancy vacancyFilter, HttpSession session,Model model,
 			@RequestParam(value="categoryId") Long categoryId) {
 		WorkCategory category = workCategoryService.findWorkCategory(categoryId);
+//		List<Vacancy> vacancies = vacancyService.findByCategory(category);
 		
 		List<Vacancy> vacancies = vacancyService.filterVacancies(vacancyFilter, category);
 		System.out.println(vacancies);
@@ -204,7 +207,7 @@ public class MainController {
 		List<WorkCategory> categories = workCategoryService.listWorkCategories();
 		model.addAttribute("cities", cities);
 		model.addAttribute("categories", categories);
-		model.addAttribute("vacancyFilter", vacancyFilter);
+		model.addAttribute("vacancies", vacancies);
 //		model.addAttribute("vacancyFilter", vacancies);
 		return "user/dashboard.jsp";
 		
