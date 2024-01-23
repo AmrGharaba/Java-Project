@@ -194,11 +194,13 @@ public class MainController {
 //		List<Vacancy> vacancies = vacancyService.findByCategory(category);
 		
 		List<Vacancy> vacancies = vacancyService.filterVacancies(vacancyFilter, category);
-		System.out.println(vacancies);
-		
-		System.out.println(category.getTitle());
-		System.out.println(vacancyFilter.getDescription());
-		System.out.println(vacancyFilter.getCity().getName());
+		/*
+		 * System.out.println(vacancies);
+		 * 
+		 * System.out.println(category.getTitle());
+		 * System.out.println(vacancyFilter.getDescription());
+		 * System.out.println(vacancyFilter.getCity().getName());
+		 */
 //		System.out.println(vacancyFilter.getWorkCategories());
 		
 		
@@ -311,7 +313,6 @@ public class MainController {
 	
 	@GetMapping("/fetchvacancy")
 	public String getVacancyTofiller(@RequestParam("category") String category,Model model,HttpSession session) {
-		System.out.println("Helllo"+ category);
 		Long userId = (Long) session.getAttribute("loginId");
 		User user = userService.find_User(userId);
 		if (category.equals("All")) {
@@ -324,7 +325,6 @@ public class MainController {
 			System.out.println("***********************************");
 			List<Vacancy> vacancy = vacancyService.filterdVacancy(category);
 			model.addAttribute("vacancies",vacancy);
-			System.out.println(vacancy);
 			model.addAttribute("user", user);
 			return "updatedCard/card.jsp";
 		}
@@ -340,10 +340,7 @@ public class MainController {
 		Long userId = (Long) session.getAttribute("loginId");
 		User user = userService.find_User(userId);
 		Vacancy vacancy = vacancyService.findVacancy(id);
-		System.out.println(vacancy.getName());
-		System.out.println(user.getFirstName());
 		userService.addJob(vacancy, user);
-		System.out.println(user.getVacancies().contains(vacancy));
 		return "redirect:/";
 	}
 	
